@@ -70,6 +70,21 @@
     });
   }
 
+  var Timingswitch = function () {
+	var i=setInterval(function(){
+	var hours=new Date().getHours();
+	if(hours >=20 || hours <= 5){
+		clearInterval(i)
+		var mode = getModeStorage()
+		var mode = 'dark';
+    	setColorMode(mode);
+    	setIcon(mode);
+    	setHighlightStyle(mode);
+	}
+	},1000)
+  }
+
   loadColorMode();
   switchColorMode();
+  Timingswitch();
 }(window, document);

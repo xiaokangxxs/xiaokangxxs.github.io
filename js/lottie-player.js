@@ -1,5 +1,5 @@
-$("body").css("cursor","url('static/normal.cur'), default");
-    $("a").css("cursor","url('static/link.cur'), pointer");
+$("body").css("cursor","url('/static/normal.cur'), default");
+    $("a").css("cursor","url('/static/link.cur'), pointer");
     //社会主义核心价值观
 	let a_idx = 0;
 	$("body").click(function(e) {

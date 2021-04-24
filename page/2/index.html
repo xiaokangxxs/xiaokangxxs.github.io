@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>相册 - 小康的宝藏库</title>
+  <title>小康的宝藏库</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
@@ -58,7 +58,7 @@
     var CONFIG = window.CONFIG || {};
     var ZHAOO = window.ZHAOO || {};
     CONFIG = {
-      isHome: false,
+      isHome: true,
       fancybox: true,
       pjax: false,
       lazyload: {
@@ -136,8 +136,6 @@
   <nav class="navbar">
     <div class="left">
       
-        <i class="iconfont iconhome j-navbar-back-home"></i>
-      
       
         <i class="iconfont iconqrcode j-navbar-qrcode"></i>
       
@@ -148,7 +146,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">相册</div>
+    <div class="center"> </div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -172,7 +170,7 @@
       </li><li class="menu-item">
         <a href="/tags/ " class="underline "> 标签</a>
       </li><li class="menu-item">
-        <a href="/galleries/ " class="underline active"> 相册</a>
+        <a href="/galleries/ " class="underline "> 相册</a>
       </li><li class="menu-item">
         <a href="/archives/ " class="underline "> 归档</a>
       </li><li class="menu-item">
@@ -182,38 +180,116 @@
   </div>
 </nav>
   <main id="main">
-  <section class="container galleries">
-    <header class="header">
-  <h1 class="header-title">相册</h1>
-  <p class="header-subtitle">Galleries</p>
-</header>
+  
+    <div class="preview">
+  <!-- <nav class="navbar j-navbar-menu">
+    <i class="iconfont iconmenu"></i>
+  </nav> -->
+  <div class="preview-image">
     
-      
-      <div class="wrap">
-      
         
-        <a href="./colorful" class="item">
-          <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="colorful">
-          <div class="title-wrap">
-            <div class="mask">
-              <h3 class="title">colorful</h3>
-            </div>
-          </div>
-        </a>
+              <div class="preview-overlay">
+                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                  <defs>
+                    <path id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                  </defs>
+                  <g class="preview-parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
+                  </g>
+                </svg>
+              </div>
+              
+  </div>
+  <div class="preview-motto-wrapper">
+    <h2 class="preview-motto" id="motto">
       
-        
-        <a href="./记事" class="item">
-          <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="记事">
-          <div class="title-wrap">
-            <div class="mask">
-              <h3 class="title">记事</h3>
-            </div>
-          </div>
-        </a>
+    </h2>
+    
+      <span class="preview-cursor">_</span>
       
+  </div>
+  <div class="preview-scroll">
+    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
+  </div>
+</div>
+  
+  <div class="container" id="container">
+    <section class="row post">
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" title="WebScraper爬虫" >WebScraper爬虫</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">chrome插件爬取数据，快来看看吧！</p>
+        </div>
       </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
+        
+          <span class="post-info-item">
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" class="leancloud" data-flag-title="WebScraper爬虫"></span>
+          </span>
+        
+        <span class="post-info-item"><i class="iconfont iconfont-size"></i>1474</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
     
-  </section>
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" title="实用网站" >实用网站</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">搞学习
+知乎：www.zhihu.com
+TED（最优质的演讲）：https://www.ted.com/
+大学资源网：http://www.dxzy163.com/
+简答题：http://ww...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
+        
+          <span class="post-info-item">
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" class="leancloud" data-flag-title="实用网站"></span>
+          </span>
+        
+        <span class="post-info-item"><i class="iconfont iconfont-size"></i>3854</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</section>
+    <section class="paginator">
+  
+    <a class="extend prev" rel="prev" href="/">&lt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  
+</section>
+  </div>
 </main>
   
 

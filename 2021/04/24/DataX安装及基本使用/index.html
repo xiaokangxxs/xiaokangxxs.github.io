@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html lang="zh_CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DataX安装及基本使用 - 小康的宝藏库</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="baidu-site-verification" content="code-Bkr3bnJzCR">
+  <meta name="keywords" content="xiaokang, hexo, life">
+  <meta name="description" content="前置准备这里我们演示 MySQL 和 HDFS 之间的...">
+  <meta name="author" content="xiaokang">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="/css/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="/css/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="/css/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/pay/alipay.png',
+        wechat: '/images/pay/wxpay.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '遇见的人，经历的事，都有它存在的意义。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'image',
+        image: '/images/gzh.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: '/search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">DataX安装及基本使用</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">DataX安装及基本使用</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2021/04/24/DataX%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="leancloud" data-flag-title="DataX安装及基本使用"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>13055</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><p>这里我们演示 MySQL 和 HDFS 之间的数据导入导出，需要预先安装 Hadoop集群。Hadoop 集群的安装教程如下：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WNS9Ho-UWesQifwk4FjxQQ">Linux下jdk的安装</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FNXjVGzIJlNDLbS6u0j6Pg">Linux下Python的安装-视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Ic1aumcFa8B-a-9kg5AscQ">Hadoop单机伪分布式-视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NLpvOiqr8tLDY4kA3EM7Zg">Hadoop完全分布式集群环境搭建-视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/gmOmg6uKD2LjhZPf4eZXdA">HA(高可用)-Hadoop集群环境搭建视频+图文教程</a></p>
+</blockquote>
+<h2 id="一、DataX-概述"><a href="#一、DataX-概述" class="headerlink" title="一、DataX 概述"></a>一、DataX 概述</h2><p>DataX 是一个异构数据源离线同步工具，致力于实现包括关系型数据库(MySQL、Oracle等)、HDFS、Hive、ODPS、HBase、FTP等各种异构数据源之间稳定高效的数据同步功能。 </p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/datax_relation.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 二、安装
+
+<h3 id="2-1-下载并解压"><a href="#2-1-下载并解压" class="headerlink" title="2.1 下载并解压"></a>2.1 下载并解压</h3><p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/DataX">https://github.com/alibaba/DataX</a> </p>
+<p>这里我下载的是最新版本的 DataX3.0 。下载地址为：<a target="_blank" rel="noopener" href="http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz">http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz </a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载后进行解压</span></span><br><span class="line">[xiaokang@hadoop ~]$ tar -zxvf datax.tar.gz -C /opt/software/</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-运行自检脚本"><a href="#2-2-运行自检脚本" class="headerlink" title="2.2 运行自检脚本"></a>2.2 运行自检脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop ~]$ cd /opt/software/datax/</span><br><span class="line">[xiaokang@hadoop datax]$ bin/datax.py job/job.json</span><br></pre></td></tr></table></figure>
+
+<p>出现以下界面说明DataX安装成功</p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/job.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h2 id="三、基本使用"><a href="#三、基本使用" class="headerlink" title="三、基本使用"></a>三、基本使用</h2><h3 id="3-1-从stream读取数据并打印到控制台"><a href="#3-1-从stream读取数据并打印到控制台" class="headerlink" title="3.1 从stream读取数据并打印到控制台"></a>3.1 从stream读取数据并打印到控制台</h3><h4 id="1-查看官方json配置模板"><a href="#1-查看官方json配置模板" class="headerlink" title="1. 查看官方json配置模板"></a>1. 查看官方json配置模板</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop ~]$ python /opt/software/datax/bin/datax.py -r streamreader -w streamwriter</span><br><span class="line"></span><br><span class="line">DataX (DATAX-OPENSOURCE-3.0), From Alibaba !</span><br><span class="line">Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please refer to the streamreader document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/streamreader/doc/streamreader.md </span><br><span class="line"></span><br><span class="line">Please refer to the streamwriter document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/streamwriter/doc/streamwriter.md </span><br><span class="line"> </span><br><span class="line">Please save the following configuration as a json file and  use</span><br><span class="line">     python &#123;DATAX_HOME&#125;/bin/datax.py &#123;JSON_FILE_NAME&#125;.json </span><br><span class="line">to run the job.</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;job&quot;: &#123;</span><br><span class="line">        &quot;content&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;reader&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;streamreader&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;column&quot;: [], </span><br><span class="line">                        &quot;sliceRecordCount&quot;: &quot;&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                &quot;writer&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;streamwriter&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;encoding&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;print&quot;: true</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        &quot;setting&quot;: &#123;</span><br><span class="line">            &quot;speed&quot;: &#123;</span><br><span class="line">                &quot;channel&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-根据模板编写json文件"><a href="#2-根据模板编写json文件" class="headerlink" title="2. 根据模板编写json文件"></a>2. 根据模板编写json文件</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;job&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;content&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;reader&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;streamreader&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;column&quot;</span>: [</span><br><span class="line">							&#123;</span><br><span class="line">								<span class="attr">&quot;type&quot;</span>:<span class="string">&quot;string&quot;</span>,</span><br><span class="line">								<span class="attr">&quot;value&quot;</span>:<span class="string">&quot;xiaokang-微信公众号:小康新鲜事儿&quot;</span></span><br><span class="line">							&#125;,</span><br><span class="line">							&#123;</span><br><span class="line">								<span class="attr">&quot;type&quot;</span>:<span class="string">&quot;string&quot;</span>,</span><br><span class="line">								<span class="attr">&quot;value&quot;</span>:<span class="string">&quot;你好，世界-DataX&quot;</span></span><br><span class="line">							&#125;</span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;sliceRecordCount&quot;</span>: <span class="string">&quot;10&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                <span class="attr">&quot;writer&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;streamwriter&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;encoding&quot;</span>: <span class="string">&quot;utf-8&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;print&quot;</span>: <span class="literal">true</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        <span class="attr">&quot;setting&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;speed&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;channel&quot;</span>: <span class="string">&quot;2&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行Job"><a href="#3-运行Job" class="headerlink" title="3. 运行Job"></a>3. 运行Job</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop json]$ /opt/software/datax/bin/datax.py ./stream2stream.json</span><br></pre></td></tr></table></figure>
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/stream2stream.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 3.2 MySQL数据导入到HDFS
+
+<p>示例：导出 MySQL 数据库中的 <code>help_keyword</code> 表到 HDFS 的 <code>/datax </code>目录下(此目录必须提前创建)。</p>
+<blockquote>
+<p>注：help_keyword 是 MySQL 内置的一张字典表，之后的示例均使用这张表。</p>
+</blockquote>
+<h4 id="1-查看官方json配置模板-1"><a href="#1-查看官方json配置模板-1" class="headerlink" title="1. 查看官方json配置模板"></a>1. 查看官方json配置模板</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop json]$ python /opt/software/datax/bin/datax.py -r mysqlreader -w hdfswriter</span><br><span class="line"></span><br><span class="line">DataX (DATAX-OPENSOURCE-3.0), From Alibaba !</span><br><span class="line">Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please refer to the mysqlreader document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/mysqlreader/doc/mysqlreader.md </span><br><span class="line"></span><br><span class="line">Please refer to the hdfswriter document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/hdfswriter/doc/hdfswriter.md </span><br><span class="line"> </span><br><span class="line">Please save the following configuration as a json file and  use</span><br><span class="line">     python &#123;DATAX_HOME&#125;/bin/datax.py &#123;JSON_FILE_NAME&#125;.json </span><br><span class="line">to run the job.</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;job&quot;: &#123;</span><br><span class="line">        &quot;content&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;reader&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;mysqlreader&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;column&quot;: [], </span><br><span class="line">                        &quot;connection&quot;: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                &quot;jdbcUrl&quot;: [], </span><br><span class="line">                                &quot;table&quot;: []</span><br><span class="line">                            &#125;</span><br><span class="line">                        ], </span><br><span class="line">                        &quot;password&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;username&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;where&quot;: &quot;&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                &quot;writer&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;hdfswriter&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;column&quot;: [], </span><br><span class="line">                        &quot;compress&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;defaultFS&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;fieldDelimiter&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;fileName&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;fileType&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;path&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;writeMode&quot;: &quot;&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        &quot;setting&quot;: &#123;</span><br><span class="line">            &quot;speed&quot;: &#123;</span><br><span class="line">                &quot;channel&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-根据模板编写json文件-1"><a href="#2-根据模板编写json文件-1" class="headerlink" title="2. 根据模板编写json文件"></a>2. 根据模板编写json文件</h4><p>mysqlreader参数解析： </p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/mysqlreader.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+hdfswriter参数解析： 
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/hdfswriter.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;job&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;content&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;reader&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;mysqlreader&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;column&quot;</span>: [</span><br><span class="line">							<span class="string">&quot;help_keyword_id&quot;</span>,</span><br><span class="line">							<span class="string">&quot;name&quot;</span></span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;connection&quot;</span>: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="attr">&quot;jdbcUrl&quot;</span>: [</span><br><span class="line">									<span class="string">&quot;jdbc:mysql://192.168.1.106:3306/mysql&quot;</span></span><br><span class="line">                                ], </span><br><span class="line">                                <span class="attr">&quot;table&quot;</span>: [</span><br><span class="line">									<span class="string">&quot;help_keyword&quot;</span></span><br><span class="line">                                ]</span><br><span class="line">                            &#125;</span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;password&quot;</span>: <span class="string">&quot;xiaokang&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;root&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                <span class="attr">&quot;writer&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;hdfswriter&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;column&quot;</span>: [</span><br><span class="line">	                        &#123;</span><br><span class="line">								<span class="attr">&quot;name&quot;</span>:<span class="string">&quot;help_keyword_id&quot;</span>,</span><br><span class="line">								<span class="attr">&quot;type&quot;</span>:<span class="string">&quot;int&quot;</span></span><br><span class="line">	                        &#125;,</span><br><span class="line">	                        &#123;</span><br><span class="line">								<span class="attr">&quot;name&quot;</span>:<span class="string">&quot;name&quot;</span>,</span><br><span class="line">								<span class="attr">&quot;type&quot;</span>:<span class="string">&quot;string&quot;</span></span><br><span class="line">	                        &#125;</span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;defaultFS&quot;</span>: <span class="string">&quot;hdfs://hadoop:9000&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;fieldDelimiter&quot;</span>: <span class="string">&quot;|&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;fileName&quot;</span>: <span class="string">&quot;keyword.txt&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;fileType&quot;</span>: <span class="string">&quot;text&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/datax&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;writeMode&quot;</span>: <span class="string">&quot;append&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        <span class="attr">&quot;setting&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;speed&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;channel&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行Job-1"><a href="#3-运行Job-1" class="headerlink" title="3. 运行Job"></a>3. 运行Job</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop json]$ /opt/software/datax/bin/datax.py ./mysql2hdfs.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-HDFS数据导出到MySQL"><a href="#3-3-HDFS数据导出到MySQL" class="headerlink" title="3.3 HDFS数据导出到MySQL"></a>3.3 HDFS数据导出到MySQL</h3><h4 id="1-将3-2中导入的文件重命名并在数据库创建表"><a href="#1-将3-2中导入的文件重命名并在数据库创建表" class="headerlink" title="1. 将3.2中导入的文件重命名并在数据库创建表"></a>1. 将3.2中导入的文件重命名并在数据库创建表</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop ~]$ hdfs dfs -mv /datax/keyword.txt__4c0e0d04_e503_437a_a1e3_49db49cbaaed /datax/keyword.txt</span><br></pre></td></tr></table></figure>
+
+<p>表必须预先创建，建表语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> help_keyword_from_hdfs_datax <span class="keyword">LIKE</span> help_keyword;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-查看官方json配置模板"><a href="#2-查看官方json配置模板" class="headerlink" title="2. 查看官方json配置模板"></a>2. 查看官方json配置模板</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop json]$ python /opt/software/datax/bin/datax.py -r hdfsreader -w mysqlwriter</span><br><span class="line"></span><br><span class="line">DataX (DATAX-OPENSOURCE-3.0), From Alibaba !</span><br><span class="line">Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please refer to the hdfsreader document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/hdfsreader/doc/hdfsreader.md </span><br><span class="line"></span><br><span class="line">Please refer to the mysqlwriter document:</span><br><span class="line">     https://github.com/alibaba/DataX/blob/master/mysqlwriter/doc/mysqlwriter.md </span><br><span class="line"> </span><br><span class="line">Please save the following configuration as a json file and  use</span><br><span class="line">     python &#123;DATAX_HOME&#125;/bin/datax.py &#123;JSON_FILE_NAME&#125;.json </span><br><span class="line">to run the job.</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;job&quot;: &#123;</span><br><span class="line">        &quot;content&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;reader&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;hdfsreader&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;column&quot;: [], </span><br><span class="line">                        &quot;defaultFS&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;encoding&quot;: &quot;UTF-8&quot;, </span><br><span class="line">                        &quot;fieldDelimiter&quot;: &quot;,&quot;, </span><br><span class="line">                        &quot;fileType&quot;: &quot;orc&quot;, </span><br><span class="line">                        &quot;path&quot;: &quot;&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                &quot;writer&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;mysqlwriter&quot;, </span><br><span class="line">                    &quot;parameter&quot;: &#123;</span><br><span class="line">                        &quot;column&quot;: [], </span><br><span class="line">                        &quot;connection&quot;: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                &quot;jdbcUrl&quot;: &quot;&quot;, </span><br><span class="line">                                &quot;table&quot;: []</span><br><span class="line">                            &#125;</span><br><span class="line">                        ], </span><br><span class="line">                        &quot;password&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;preSql&quot;: [], </span><br><span class="line">                        &quot;session&quot;: [], </span><br><span class="line">                        &quot;username&quot;: &quot;&quot;, </span><br><span class="line">                        &quot;writeMode&quot;: &quot;&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        &quot;setting&quot;: &#123;</span><br><span class="line">            &quot;speed&quot;: &#123;</span><br><span class="line">                &quot;channel&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-根据模板编写json文件"><a href="#3-根据模板编写json文件" class="headerlink" title="3. 根据模板编写json文件"></a>3. 根据模板编写json文件</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;job&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;content&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;reader&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;hdfsreader&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;column&quot;</span>: [</span><br><span class="line">							<span class="string">&quot;*&quot;</span></span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;defaultFS&quot;</span>: <span class="string">&quot;hdfs://hadoop:9000&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;encoding&quot;</span>: <span class="string">&quot;UTF-8&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;fieldDelimiter&quot;</span>: <span class="string">&quot;|&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;fileType&quot;</span>: <span class="string">&quot;text&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/datax/keyword.txt&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, </span><br><span class="line">                <span class="attr">&quot;writer&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;mysqlwriter&quot;</span>, </span><br><span class="line">                    <span class="attr">&quot;parameter&quot;</span>: &#123;</span><br><span class="line">                        <span class="attr">&quot;column&quot;</span>: [</span><br><span class="line">							<span class="string">&quot;help_keyword_id&quot;</span>,</span><br><span class="line">							<span class="string">&quot;name&quot;</span></span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;connection&quot;</span>: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="attr">&quot;jdbcUrl&quot;</span>: <span class="string">&quot;jdbc:mysql://192.168.1.106:3306/mysql&quot;</span>, </span><br><span class="line">                                <span class="attr">&quot;table&quot;</span>: [<span class="string">&quot;help_keyword_from_hdfs_datax&quot;</span>]</span><br><span class="line">                            &#125;</span><br><span class="line">                        ], </span><br><span class="line">                        <span class="attr">&quot;password&quot;</span>: <span class="string">&quot;xiaokang&quot;</span>,  </span><br><span class="line">                        <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;root&quot;</span>, </span><br><span class="line">                        <span class="attr">&quot;writeMode&quot;</span>: <span class="string">&quot;insert&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ], </span><br><span class="line">        <span class="attr">&quot;setting&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;speed&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;channel&quot;</span>: <span class="string">&quot;3&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-运行Job-2"><a href="#3-运行Job-2" class="headerlink" title="3. 运行Job"></a>3. 运行Job</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop json]$ /opt/software/datax/bin/datax.py ./hdfs2mysql.json</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>xiaokang</li>
+    <li><strong>本文链接：</strong><a href="https://xiaokangxxs.github.io/2021/04/24/DataX%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html" title="https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;DataX%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8&#x2F;index.html">https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;DataX%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/04/24/64%E6%9D%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99/">64条常用正则<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz",
+        app_key: "3OBhxaI3STYwiLVnSUv6PzzF",
+        placeholder: "留下你的足迹",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81DataX-%E6%A6%82%E8%BF%B0"><span class="toc-text">一、DataX 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8B"><span class="toc-text">2.1 下载并解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BF%90%E8%A1%8C%E8%87%AA%E6%A3%80%E8%84%9A%E6%9C%AC"><span class="toc-text">2.2 运行自检脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">三、基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8Estream%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%89%93%E5%8D%B0%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-text">3.1 从stream读取数据并打印到控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-HDFS%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E5%88%B0MySQL"><span class="toc-text">3.3 HDFS数据导出到MySQL</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1181259634 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://xiaokangxxs.github.io/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xiaokangxxs "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:xiaokang.188@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#0074D9" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/js/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="/js/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="/js/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+  <script>
+  $.getScript("//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js", () => {
+
+    AV.init({
+      appId: 'IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz',
+      appKey: '3OBhxaI3STYwiLVnSUv6PzzF',
+      serverURLs: 'https://leancloud.cn/',
+    });
+
+    const showCount = (Counter) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud").each(async (e) => {
+        const url = $(".leancloud").eq(e).attr('id').trim();
+        const query = new AV.Query("Counter");
+        query.equalTo("words", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud").eq(e).text(count ? count : '--');
+      });
+    }
+
+    const addCount = (Counter) => {
+      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Counter;
+      query.save({
+        words: url
+      });
+    }
+
+    $(function () {
+      const Counter = AV.Object.extend("Counter");
+      addCount(Counter);
+      showCount(Counter);
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/lottie-player.js"></script>
+
+
+</html>

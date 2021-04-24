@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html lang="zh_CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kafka你了解多少？ - 小康的宝藏库</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="baidu-site-verification" content="code-Bkr3bnJzCR">
+  <meta name="keywords" content="xiaokang, hexo, life, Kafka, 消息队列, 百万级">
+  <meta name="description" content="1. Kafka架构  
+
+Kafka Cluster...">
+  <meta name="author" content="xiaokang">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="/css/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="/css/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="/css/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/pay/alipay.png',
+        wechat: '/images/pay/wxpay.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '遇见的人，经历的事，都有它存在的意义。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'image',
+        image: '/images/gzh.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: '/search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">Kafka你了解多少？</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Kafka你了解多少？</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/" class="leancloud" data-flag-title="Kafka你了解多少？"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>9821</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h3 id="1-Kafka架构"><a href="#1-Kafka架构" class="headerlink" title="1. Kafka架构"></a>1. Kafka架构</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Kafka/kafka-architecture.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<p><strong>Kafka Cluster</strong></p>
+<p>Kafka作为分布式消息队列，是以集群形式对外服务的（即使只有一个节点）。初始化时会在Zookeeper的/cluster/id目录下创建ClusterID值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 5] get /cluster/id</span><br><span class="line">&#123;&quot;version&quot;:&quot;1&quot;,&quot;id&quot;:&quot;Nf1FphTTQni9RjWWz31lrQ&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Producer</strong></p>
+<p>生产者是Kafka中发送消息的客户端，主要是通过Zookeeper与Kafka集群进行连接，并且将消息发送<br>到Kafka集群  </p>
+<p><strong>Consumer</strong></p>
+<p>消费者是Kafka消息消费的客户端。Consumer直接与Kafka Borker构建连接消费Broker上某个主题<br>的数据</p>
+<p><strong>Zookeeper集群</strong></p>
+<p>Kafka集群、ISR、消费者组等信息存储在Zookeeper中，0.9版本之前消费者offset维护在zk中，0.9版本之后存储在本地</p>
+<p><strong>Topic</strong></p>
+<p>生产者发送消息时必须指定一个分类，我们将它称为主题。主题是Kafka中数据隔离的一种方式，Topic是一个逻辑概念，其真正的表现形式是在Kafka存储目录下创建多个关于该主题的文件夹。每个主题代表了一种数据来源。比如topicA：代表日志数据，topicB：代表用户数据 </p>
+<p><strong>Partition</strong></p>
+<p>Partition就是Topic物理上的实现，其表现形式为目录。每个Topic可以包含多个分区，每个Partiton包含了Topic的部分数据。Partition目录命名方式：Topic名称-分区ID，比如logs，三个分区logs-0、logs-1、logs-2  </p>
+<p><strong>Broker</strong></p>
+<p>Kafka集群中每个节点都是Broker。一个集群可以包含N个Broker，Broker.id值必须不同。在Zookeeper之上可以查看每个节点的详细信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 11] get /brokers/ids/0</span><br><span class="line">&#123;&quot;listener_security_protocol_map&quot;:&#123;&quot;PLAINTEXT&quot;:&quot;PLAINTEXT&quot;&#125;,&quot;endpoints&quot;:[&quot;PLAINTEXT://hadoop:9092&quot;],&quot;jmx_port&quot;:-1,&quot;host&quot;:&quot;hadoop&quot;,&quot;timestamp&quot;:&quot;1593767504799&quot;,&quot;port&quot;:9092,&quot;version&quot;:4&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Consumer Group</strong></p>
+<p>消费者组主要用来管理组织消费者的，并且消费者组规定了消费消息的行为。Kafka实现点对点和发布订阅模式主要是基于Consumer Group的，其中：在同一个消费者组内，消息是P2P模式；在不同消费者组之间，消息是发布订阅模式  </p>
+<h3 id="2-Kafka压测"><a href="#2-Kafka压测" class="headerlink" title="2. Kafka压测"></a>2. Kafka压测</h3><p>使用Kafka官方自带压力测试脚本（kafka-consumer-perf-test.sh、kafka-producer-perf-test.sh）进行压测，可以查看哪个地方出现了瓶颈（CPU、内存、网络IO）。<strong>一般都是网络IO达到瓶颈</strong>  </p>
+<p><strong>写入10w消息压测结果</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop ~]$ kafka-producer-perf-test.sh --topic logs --num-records 100000 --record-size 1000  --throughput 2000 --producer-props bootstrap.servers=hadoop:9092</span><br><span class="line"></span><br><span class="line">10002 records sent, 1999.6 records/sec (1.91 MB/sec), 30.1 ms avg latency, 608.0 ms max latency.</span><br><span class="line">9990 records sent, 1997.6 records/sec (1.91 MB/sec), 1.4 ms avg latency, 28.0 ms max latency.</span><br><span class="line">10022 records sent, 2004.4 records/sec (1.91 MB/sec), 0.9 ms avg latency, 13.0 ms max latency.</span><br><span class="line">9998 records sent, 1999.6 records/sec (1.91 MB/sec), 1.0 ms avg latency, 13.0 ms max latency.</span><br><span class="line">9986 records sent, 1996.4 records/sec (1.90 MB/sec), 0.9 ms avg latency, 12.0 ms max latency.</span><br><span class="line">10022 records sent, 2004.4 records/sec (1.91 MB/sec), 0.7 ms avg latency, 21.0 ms max latency.</span><br><span class="line">10002 records sent, 2000.0 records/sec (1.91 MB/sec), 0.5 ms avg latency, 12.0 ms max latency.</span><br><span class="line">10002 records sent, 2000.0 records/sec (1.91 MB/sec), 0.4 ms avg latency, 11.0 ms max latency.</span><br><span class="line">10004 records sent, 2000.4 records/sec (1.91 MB/sec), 0.4 ms avg latency, 12.0 ms max latency.</span><br><span class="line">100000 records sent, 1999.000500 records/sec (1.91 MB/sec), 3.68 ms avg latency, 608.00 ms max latency, 1 ms 50th, 3 ms 95th, 164 ms 99th, 218 ms 99.9th.</span><br><span class="line"></span><br><span class="line">--topic topic名称，此处为logs</span><br><span class="line">--num-records 总共需要发送的消息数，此处为100000</span><br><span class="line">--record-size 每个记录的字节数，此处为1000</span><br><span class="line">--throughput 每秒钟发送的记录数，此处为2000，如果设置为-1，则表示不限流，可以测出生产者最大吞吐量</span><br><span class="line">--producer-props bootstrap.servers=hadoop:9092 发送端的配置信息，此处使用默认端口号9092</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">消息写入测试结果解析：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">本例中写入10w条消息为例，每秒平均向Kafka写入了1.91MB的数据，大概是1999.000条消息/秒，每次写入的平均延迟为3.68毫秒，最大的延迟为608毫秒。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>消费10w消息压测结果</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[xiaokang@hadoop ~]$ kafka-consumer-perf-test.sh --broker-list hadoop:9092 --topic logs --fetch-size 1048576 --messages 100000 --threads 1</span><br><span class="line"></span><br><span class="line">start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec</span><br><span class="line">2020-07-03 19:33:36:119, 2020-07-03 19:33:39:595, 95.3674, 27.4360, 100000, 28768.6997, 1593776018209, -1593776014733, -0.0000, -0.0001</span><br><span class="line"></span><br><span class="line">--broker-list 指定Kafka的链接信息，此处为hadoop:9092</span><br><span class="line">--topic 指定Topic的名称，此处为logs，即上面写入的消息</span><br><span class="line">--fetch-size 指定每次fetch的数据的大小，本例为1048576（1M）</span><br><span class="line">--messages 总共要消费的消息个数，此处为100000，10w</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">消息消费测试结果解析：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">本例中消费10w条消息为例总共消费了95.3674M的数据，每秒消费数据大小为27.4360M，总共消费了100000条消息，每秒消费28768.6997条消息。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Kafka机器数量计算"><a href="#3-Kafka机器数量计算" class="headerlink" title="3. Kafka机器数量计算"></a>3. Kafka机器数量计算</h3><p>Kafka机器数量=2*（峰值生产速度*副本数/100）+1</p>
+<p>一般我们会先拿到峰值生产速度（写入消息时每秒写入的数据量），再根据设定的副本数就可以预估出需要部署Kafka的数量</p>
+<p>一般峰值生产速度在50M/s，副本数为2，这样得出Kafka机器数量=2*（50*2/100）+1=3台</p>
+<h3 id="4-生产者生产数据过程"><a href="#4-生产者生产数据过程" class="headerlink" title="4. 生产者生产数据过程"></a>4. 生产者生产数据过程</h3><p>以kafka-console-producer.sh 命令为例：<br>该运行命令会启动ConsoleProducer进程，ConsoleProducer初始化过程中会创建KafkaProducer对象。KafkaProducer首先将消息数据封装成ProducerRecord，ProducerRecord对象会对消息进行序列化（涉及到网络传输），之后会被RecordAccumulator消息记录器进行收集，进而放在消息队列缓冲池（ConcurrentMap）。消息缓冲池中对象是以batch存在（一次一批数据）。KafkaProducer在进行初始化的时候会创建NetworkClient对象。NetworkClient主要作用负责管理客户端与服务端的网络通信，并且是以NIO的形式发送消息（同步或异步发送均可）。最后由后台sender线程将数据从缓冲池队列中拉取过来，以批量的形式将数据发送到客户端</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">NetworkClient：三大核心功能</span></span><br><span class="line"><span class="attr">1.ready()：主要建立与broker链接。NetworkClient连接到kafka集群中存活的节点</span></span><br><span class="line"><span class="attr">2.send()：用来将客户端请求发送到请求队列中，进而会通过网络选择器将请求最终发送到Kafka集群存活的节点</span></span><br><span class="line"><span class="attr">3.poll()：用来通过socket请求读取客户端的响应。一般poll()是循环操作</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-消费者消费数据过程"><a href="#5-消费者消费数据过程" class="headerlink" title="5. 消费者消费数据过程"></a>5. 消费者消费数据过程</h3><p>客户端代理对象KafkaConsumer通过subscribe订阅主题，并且通过poll拉取数据，最后通过commitSync方法提交消费者消费状态（维护offset值）。拉取数据是以特定的时间参数轮询的批量拉取数据，并将拉取的结果缓存到ConsumerRecords，最后通过迭代ConsumerRecords对象获取每一条数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConsumerCoordinator：KafkaConsumer协调器对象，主要负责与服务端进行交互，比如自动提交offset、心跳检测、再平衡操作、跟踪kafka元数据</span><br><span class="line">Fetcher：拉取数据管理器，负责拉取数据并且接受客户端响应</span><br><span class="line">ConsumerNetworkClient：主要负责与Kafka服务节点进行连接，发送拉取数据请求</span><br><span class="line"></span><br><span class="line">max.poll.records ：每次轮询获取最大批量的数据条数 默认500条</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-一些Kafka经验值"><a href="#6-一些Kafka经验值" class="headerlink" title="6. 一些Kafka经验值"></a>6. 一些Kafka经验值</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Kafka的日志保存时间，默认7天</span></span><br><span class="line"><span class="meta">log.retention.hours</span>=<span class="string">168</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Kafka硬盘大小多大合适？</span></span><br><span class="line"><span class="attr">每天的数据量*7天/70%</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Kafka监控器：KafkaManager、KafkaMonitor、kafkaeagle</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Kafka分区数设置多少合适？</span></span><br><span class="line"><span class="attr">分区数并不是越多越好，一般分区数不要超过集群机器数量。分区数越多占用内存越大（ISR等），一个节点集中的分区也就越多，当它宕机的时候，对系统的影响也就越大。分区数一般设置为：3-10</span></span><br><span class="line"></span><br><span class="line"><span class="attr">副本数设置多少合适？</span></span><br><span class="line"><span class="attr">一般设置成2个或3个，大部分企业设置为2个</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Topic搞多少个合适？</span></span><br><span class="line"><span class="attr">通常情况下多少个日志类型就多少个Topic，也有对日志类型进行合并的</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-一条消息如何确定分区？"><a href="#7-一条消息如何确定分区？" class="headerlink" title="7. 一条消息如何确定分区？"></a>7. 一条消息如何确定分区？</h3><p>KafkaProducer提供了三种方式来让一条消息确定分区</p>
+<p>1.通过ProducerRecord对象中partition属性指定分区id</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProducerRecord</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String topic;</span><br><span class="line">        <span class="comment">//分区</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Integer partition;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Headers headers;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> K key;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> V value;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Long timestamp;</span><br><span class="line">        <span class="comment">//构造函数</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ProducerRecord</span><span class="params">(String topic, Integer partition, Long timestamp, K key, V value)</span> </span>&#123;</span><br><span class="line">        		<span class="keyword">this</span>(topic, partition, timestamp, key, value, <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// Kafka消息被封装成ProducerRecord，在创建时可以通过构造函数指定partitionId</span></span><br></pre></td></tr></table></figure>
+
+<p>2.未指定partitionId，但key不为空，此时根据key的hash值进行分区</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(ProducerRecord&lt;K, V&gt; record, <span class="keyword">byte</span>[]serializedKey, <span class="keyword">byte</span>[] serializedValue, Cluster cluster)</span> </span>&#123;</span><br><span class="line">        Integer partition = record.partition();</span><br><span class="line">        <span class="keyword">return</span> partition != <span class="keyword">null</span> ?</span><br><span class="line">        partition :</span><br><span class="line">        partitioner.partition(</span><br><span class="line">        record.topic(), record.key(), serializedKey,record.value(), serializedValue, cluster);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// hash the keyBytes to choose a partition</span></span><br><span class="line"><span class="keyword">return</span> Utils.toPositive(Utils.murmur2(keyBytes)) % numPartitions;</span><br><span class="line"><span class="comment">// 根据key字节数组的hash值和分区数量进行取模得到paritionId。在partition数量不变的情况，相同的key值数据可以被分配到相同的partition</span></span><br></pre></td></tr></table></figure>
+
+<p>3.未指定partitionId，同时key也为null，此时会采用轮询的方式将消息均衡的分配到不同分区中（默认情况下key就是null）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算轮询值</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">nextValue</span><span class="params">(String topic)</span> </span>&#123;</span><br><span class="line">        AtomicInteger counter = topicCounterMap.get(topic);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == counter) &#123;</span><br><span class="line">                counter = <span class="keyword">new</span> AtomicInteger(ThreadLocalRandom.current().nextInt());</span><br><span class="line">                AtomicInteger currentCounter = topicCounterMap.putIfAbsent(topic, counter);</span><br><span class="line">                <span class="keyword">if</span> (currentCounter != <span class="keyword">null</span>) &#123;</span><br><span class="line">                		counter = currentCounter;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125; </span><br><span class="line">    	<span class="keyword">return</span> counter.getAndIncrement();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//key为空采用轮询方式均衡分配到不同Id</span></span><br><span class="line"><span class="keyword">if</span> (keyBytes == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> nextValue = nextValue(topic);</span><br><span class="line">        List&lt;PartitionInfo&gt; availablePartitions = cluster.availablePartitionsForTopic(topic);</span><br><span class="line">        <span class="keyword">if</span> (availablePartitions.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> part = Utils.toPositive(nextValue) %availablePartitions.size();</span><br><span class="line">                <span class="keyword">return</span> availablePartitions.get(part).partition();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// no partitions are available, give a nonavailable partition</span></span><br><span class="line">                <span class="keyword">return</span> Utils.toPositive(nextValue) % numPartitions;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-可用性和可靠性保证机制"><a href="#8-可用性和可靠性保证机制" class="headerlink" title="8. 可用性和可靠性保证机制"></a>8. 可用性和可靠性保证机制</h3><p>KafkaProducer发送数据请求，可以通过acks参数确保整个提交请求完成。acks主要是设置Producer在确认一条消息发送完成之前需要收到的反馈信息。  </p>
+<p>acks=0，相当于异步发送，表示不等待任何服务器反馈消息，消息发送完毕即offset增加，继续生产。</p>
+<p>优点：发送效率比较高，能够适应高并发场景。<br>缺点：不能够有效保证数据不丢失<br>适用场景：对于数据准确定要求不高的实时系统，登录、操作等log日志  </p>
+<p>acks=1，leader收到leader replica 对一个消息的接受ack才增加offset，然后继续生产。</p>
+<p>优点：该配置能够确保每个partition的leader节点能够成功的接收消息<br>缺点：不能够保证partition的副本节点接收到数据，该种情况有可能造成数据丢失。leader接收到消息后宕机，此时该partition的其他副本没有同步到该消息，这样就造成数据丢失</p>
+<p>acks=-1/all，leader收到所有replica 对一个消息的接受ack才增加offset，然后继续生产。</p>
+<p>优点：该配置能够最大限度的保证数据持久化并且不丢失<br>缺点：降低系统响应速度</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该参数表示成功写入最小副本数</span></span><br><span class="line">min.insync.replicas=2 表示只要是能够写入2个副本就表示成功。</span><br><span class="line">生产环境下一般配合acks=-1使用，这样能够兼顾数据安全和响应速度  </span><br></pre></td></tr></table></figure>
+
+<h3 id="9-ISR机制"><a href="#9-ISR机制" class="headerlink" title="9. ISR机制"></a>9. ISR机制</h3><p>ISR（In-Sync Replicas），副本同步队列。ISR中包括Leader和Follower，Leader副本负责维护和跟踪ISR集合中所有Follower副本的。当Follower副本同步Leader数据时，如果滞后太多或者失效的话，Leader会将Follower从ISR列表中移除从而转移到OSR。OSR集合中Follower一旦追上Leader副本，那么Leader会将该Follower从OSR集合转移到ISR中。当Leader副本发生故障时，只有在ISR集合的副本会有资格选举成Leader。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replica.lag.time.max.ms=10000 单位毫秒：表示follower在规定的时间内没有同步完成Leader数据，将会被剔除从而到OSR中</span><br></pre></td></tr></table></figure>
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Kafka/kafka-isr.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="10-Kafka幂等性和数据重复"><a href="#10-Kafka幂等性和数据重复" class="headerlink" title="10. Kafka幂等性和数据重复"></a>10. Kafka幂等性和数据重复</h3><p>Producer的幂等性指的是当发送同一条消息时，数据在Server端只会被持久化一次，数据不丟不重，但是这里的幂等性是有条件的：</p>
+<p>1）<strong>只能保证Producer在单个会话内不丟不重，如果Producer出现意外而挂掉再重启是无法保证的</strong>（幂等性情况下，是无法获取之前的状态信息，因此是无法做到跨会话级别的不丢不重）。</p>
+<p>2）幂等性不能跨多个Topic-Partition，<strong>只能保证单个Partition内的幂等性</strong>，当涉及多个Topic-Partition时，这中间的状态并没有同步。</p>
+<p>解决数据重复：开启幂等性+ack=-1+事务  </p>
+<h3 id="11-Kafka参数优化"><a href="#11-Kafka参数优化" class="headerlink" title="11. Kafka参数优化"></a>11. Kafka参数优化</h3><p><strong>Broker参数配置（server.properties）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">broker处理消息的最大线程数（默认为3）</span></span><br><span class="line">num.network.threads=cpu核数+1</span><br><span class="line"><span class="meta">#</span><span class="bash"> broker处理磁盘IO的线程数</span> </span><br><span class="line">num.io.threads=cpu核数*2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 每当producer写入10000条消息时，刷数据到磁盘</span> </span><br><span class="line">log.flush.interval.messages=10000</span><br><span class="line"><span class="meta">#</span><span class="bash"> 每间隔1秒钟时间，刷数据到磁盘</span></span><br><span class="line">log.flush.interval.ms=1000</span><br><span class="line"><span class="meta">#</span><span class="bash"> 保留三天，也可以更短 （log.cleaner.delete.retention.ms）</span></span><br><span class="line">log.retention.hours=72</span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个参数指新创建一个topic时，默认的Replica数量,Replica过少会影响数据的可用性，太多则会白白浪费存储资源，一般建议在2~3为宜。</span></span><br><span class="line">offsets.topic.replication.factor:3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Producer优化（producer.properties）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">在Producer端用来存放尚未发送出去的Message的缓冲区大小。缓冲区满了之后可以选择阻塞发送或抛出异常，由block.on.buffer.full的配置来决定。</span></span><br><span class="line">buffer.memory:33554432 (32m)</span><br><span class="line"><span class="meta">#</span><span class="bash">默认发送不进行压缩，推荐配置一种适合的压缩算法，可以大幅度的减缓网络压力和Broker的存储压力。</span></span><br><span class="line">compression.type:none</span><br></pre></td></tr></table></figure>
+
+<p><strong>Consumer优化</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">启动Consumer的个数，适当增加可以提高并发度。</span></span><br><span class="line">num.consumer.fetchers:1</span><br><span class="line"><span class="meta">#</span><span class="bash">每次Fetch Request至少要拿到多少字节的数据才可以返回。</span></span><br><span class="line">fetch.min.bytes:1</span><br><span class="line"><span class="meta">#</span><span class="bash">在Fetch Request获取的数据至少达到fetch.min.bytes之前，允许等待的最大时长。对应上面说到的Purgatory中请求的超时时间。</span></span><br><span class="line">fetch.wait.max.ms:100</span><br></pre></td></tr></table></figure>
+
+<p><strong>Kafka内存调整（kafka-server-start.sh）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认内存1个G，生产环境尽量不要超过6个G。</span></span><br><span class="line">export KAFKA_HEAP_OPTS=&quot;-Xms4g -Xmx4g&quot;</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>xiaokang</li>
+    <li><strong>本文链接：</strong><a href="https://xiaokangxxs.github.io/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/index.html" title="https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91&#x2F;index.html">https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2021/04/24/64%E6%9D%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99/"><i class="iconfont iconleft"></i>64条常用正则</a>
+    <a href="/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/">手把手教你做一份儿在线简历<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz",
+        app_key: "3OBhxaI3STYwiLVnSUv6PzzF",
+        placeholder: "留下你的足迹",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Kafka%E6%9E%B6%E6%9E%84"><span class="toc-text">1. Kafka架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Kafka%E5%8E%8B%E6%B5%8B"><span class="toc-text">2. Kafka压测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Kafka%E6%9C%BA%E5%99%A8%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-text">3. Kafka机器数量计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%9F%E4%BA%A7%E8%80%85%E7%94%9F%E4%BA%A7%E6%95%B0%E6%8D%AE%E8%BF%87%E7%A8%8B"><span class="toc-text">4. 生产者生产数据过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B6%88%E8%B4%B9%E8%80%85%E6%B6%88%E8%B4%B9%E6%95%B0%E6%8D%AE%E8%BF%87%E7%A8%8B"><span class="toc-text">5. 消费者消费数据过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%B8%80%E4%BA%9BKafka%E7%BB%8F%E9%AA%8C%E5%80%BC"><span class="toc-text">6. 一些Kafka经验值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%B8%80%E6%9D%A1%E6%B6%88%E6%81%AF%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%88%86%E5%8C%BA%EF%BC%9F"><span class="toc-text">7. 一条消息如何确定分区？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%8F%AF%E7%94%A8%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BF%9D%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-text">8. 可用性和可靠性保证机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-ISR%E6%9C%BA%E5%88%B6"><span class="toc-text">9. ISR机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Kafka%E5%B9%82%E7%AD%89%E6%80%A7%E5%92%8C%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D"><span class="toc-text">10. Kafka幂等性和数据重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Kafka%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-text">11. Kafka参数优化</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1181259634 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://xiaokangxxs.github.io/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xiaokangxxs "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:xiaokang.188@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#0074D9" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/js/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="/js/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="/js/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+  <script>
+  $.getScript("//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js", () => {
+
+    AV.init({
+      appId: 'IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz',
+      appKey: '3OBhxaI3STYwiLVnSUv6PzzF',
+      serverURLs: 'https://leancloud.cn/',
+    });
+
+    const showCount = (Counter) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud").each(async (e) => {
+        const url = $(".leancloud").eq(e).attr('id').trim();
+        const query = new AV.Query("Counter");
+        query.equalTo("words", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud").eq(e).text(count ? count : '--');
+      });
+    }
+
+    const addCount = (Counter) => {
+      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Counter;
+      query.save({
+        words: url
+      });
+    }
+
+    $(function () {
+      const Counter = AV.Object.extend("Counter");
+      addCount(Counter);
+      showCount(Counter);
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/lottie-player.js"></script>
+
+
+</html>

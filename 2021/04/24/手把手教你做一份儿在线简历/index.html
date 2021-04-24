@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html lang="zh_CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>手把手教你做一份儿在线简历 - 小康的宝藏库</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="baidu-site-verification" content="code-Bkr3bnJzCR">
+  <meta name="keywords" content="xiaokang, hexo, life, 简历, 手把手教学">
+  <meta name="description" content="
+微信公众号：小康新鲜事儿
+
+前置准备node-12....">
+  <meta name="author" content="xiaokang">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="/css/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="/css/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="/css/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/pay/alipay.png',
+        wechat: '/images/pay/wxpay.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '遇见的人，经历的事，都有它存在的意义。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'image',
+        image: '/images/gzh.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: '/search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">手把手教你做一份儿在线简历</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">手把手教你做一份儿在线简历</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/" class="leancloud" data-flag-title="手把手教你做一份儿在线简历"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6275</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <blockquote>
+<p>微信公众号：小康新鲜事儿</p>
+</blockquote>
+<h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><p>node-12.16.3、git-2.26.2.windows.1、Typora、Windows10</p>
+<p>源码：<a target="_blank" rel="noopener" href="https://github.com/xiaokangxxs/note/blob/master/noteSourceCode/profile.md">https://github.com/xiaokangxxs/note/blob/master/noteSourceCode/profile.md</a></p>
+<p>演示地址：<a href="https://xiaokangxxs.github.io/note/profile/">https://xiaokangxxs.github.io/note/profile/</a> or <a target="_blank" rel="noopener" href="https://xiaokang_188.gitee.io/note/profile/">https://xiaokang_188.gitee.io/note/profile/</a></p>
+<h2 id="一、安装nodeppt"><a href="#一、安装nodeppt" class="headerlink" title="一、安装nodeppt"></a>一、安装nodeppt</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xiaok&gt;npm install -g nodeppt</span><br><span class="line"></span><br><span class="line">+ nodeppt@2.2.2</span><br><span class="line">added 1 package from 1 contributor, removed 2 packages and updated 13 packages in 52.997s</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、编写简历"><a href="#二、编写简历" class="headerlink" title="二、编写简历"></a>二、编写简历</h2><h3 id="2-1-使用nodeppt生成模板文件"><a href="#2-1-使用nodeppt生成模板文件" class="headerlink" title="2.1 使用nodeppt生成模板文件"></a>2.1 使用nodeppt生成模板文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D:\NodePPT\nodeppt-在线简历制作&gt;nodeppt new profile.md</span><br><span class="line">? Input your presentation topic:  个人简历</span><br><span class="line">? Input your name:  小康&amp;小康新鲜事儿</span><br><span class="line"></span><br><span class="line">�  profile.md create success!</span><br><span class="line"></span><br><span class="line">──────────────────── �  Success! ────────────────────</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     ┌────────────────────────────────────────────┐</span><br><span class="line">     │  To get started: nodeppt serve profile.md  │</span><br><span class="line">     └────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-改写内容"><a href="#2-2-改写内容" class="headerlink" title="2.2 改写内容"></a>2.2 改写内容</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">title: 小康个人简历</span><br><span class="line">speaker: 小康&amp;小康新鲜事儿</span><br><span class="line">url: https://www.xiaokang.cool/</span><br><span class="line">prismTheme: solarizedlight </span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span> <span class="attr">class</span>=<span class="string">&quot;bg-black aligncenter&quot;</span> <span class="attr">image</span>=<span class="string">&quot;https://cn.bing.com/az/hprichbg/rb/PragueChristmas_EN-AU8649790921_1920x1080.jpg .dark&quot;</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="section"># 个人简历 &#123;.text-landing.text-shadow.text-landing.animated.fadeInRight&#125;</span></span><br><span class="line"></span><br><span class="line">小康 &#123;.text-intro&#125;</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span>   翻页\: ↑/↓/←/→ Space Home End</span><br><span class="line"><span class="bullet">-</span>   全屏\: F</span><br><span class="line"><span class="bullet">-</span>   预览\: -/+</span><br><span class="line"><span class="bullet">-</span>   网格背景\: Enter</span><br><span class="line"></span><br><span class="line">[<span class="string">:fa-envelope: Email</span>](<span class="link">mailto:xiaokang.188@qq.com</span>)&#123;.button.ghost.animated.flipInX.delay-1200&#125;</span><br><span class="line"></span><br><span class="line">:::footer</span><br><span class="line">[<span class="string">:fa-comments: 小康新鲜事儿</span>](<span class="link">https://mp.weixin.qq.com/s/3-3_Ns5nDIhcB7TS7d-ocA</span>)&#123;.alignright&#125;</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::cta</span><br><span class="line">::![](https://boyue-file.oss-cn-beijing.aliyuncs.com/profile/picture.png)::</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">#### 小康<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span></span><br><span class="line"><span class="section">##### 求职意向：大数据开发工程师<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span></span><br><span class="line"><span class="section">##### 出生年月：1997.11&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;电话：1583223xxxx<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span></span><br><span class="line"><span class="section">##### 籍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;贯：河北保定&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;邮箱：xiaokang.188@qq.com</span></span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 教育背景</span></span><br><span class="line">2016.09-2020.06&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;xxxx学校&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;计算机科学与技术&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本科</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">## 专业技能</span></span><br><span class="line">1.熟练掌握JAVA，了解Scala编程语言，拥有良好的编程习惯。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">2.熟悉Linux常用命令，熟练使用Shell编写脚本。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">3.熟悉Hadoop运行原理以及高可用部署安装，掌握HDFS的存储机制。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">4.熟练使用Flume、Sqoop、DataX实现数据采集、迁移。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">5.熟练使用Hive进行数据分析，掌握自定义UDF。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">6.熟悉Kafka工作原理，了解Kafka的Topic消息处理模式和消息分区备份机制。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">7.熟悉分布式数据库HBase工作原理，具备一定的HBase调优经验。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">8.了解离线多维分析Kylin的基本使用。</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 工作经历</span></span><br><span class="line">时间：2019.06-2020.06<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">职位：大数据开发实习生<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">公司：xxxx有限公司<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">职责：1.参与大数据平台搭建与维护&amp;nbsp;2.协助完成Hive中的数据分析&amp;nbsp;3.完成与工作相关的技术文档编写</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 项目经验-1</span></span><br><span class="line">项目名称：用户兴趣取向预测离线数据分析平台<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">技术架构：Flume+Kafka+HBase+Zookeeper+Hive+Hadoop+Sqoop+MySQL<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">项目描述：该项目是为活动举办方开发的活动分析预测大数据平台，通过Flume将第三方数据导入Kafka，通过Kafka流处理将数据放入HBase中。使用Hive关联HBase中的数据进行分析，将分析结果送到机器学习组进行建模，最终将分析预测结果送入HBase，导出到MySQL中并使用Tableau进行可视化展示，为企业活动举办提供决策支撑。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">主要职责：<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;1.参与大数据平台搭建与维护。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;2.通过Flume采集数据到Kafka。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;3.协助完成Hive中的数据分析。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;4.完成与工作相关的技术文档编写。</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 项目经验-2</span></span><br><span class="line">项目名称：用户兴趣取向预测离线数据分析平台<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">技术架构：Flume+Kafka+HBase+Zookeeper+Hive+Hadoop+Sqoop+MySQL<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">项目描述：该项目是为活动举办方开发的活动分析预测大数据平台，通过Flume将第三方数据导入Kafka，通过Kafka流处理将数据放入HBase中。使用Hive关联HBase中的数据进行分析，将分析结果送到机器学习组进行建模，最终将分析预测结果送入HBase，导出到MySQL中并使用Tableau进行可视化展示，为企业活动举办提供决策支撑。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">主要职责：<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;1.参与大数据平台搭建与维护。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;2.通过Flume采集数据到Kafka。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;3.协助完成Hive中的数据分析。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;4.完成与工作相关的技术文档编写。</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 项目经验-3</span></span><br><span class="line">项目名称：用户兴趣取向预测离线数据分析平台<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">技术架构：Flume+Kafka+HBase+Zookeeper+Hive+Hadoop+Sqoop+MySQL<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">项目描述：该项目是为活动举办方开发的活动分析预测大数据平台，通过Flume将第三方数据导入Kafka，通过Kafka流处理将数据放入HBase中。使用Hive关联HBase中的数据进行分析，将分析结果送到机器学习组进行建模，最终将分析预测结果送入HBase，导出到MySQL中并使用Tableau进行可视化展示，为企业活动举办提供决策支撑。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">主要职责：<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;1.参与大数据平台搭建与维护。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;2.通过Flume采集数据到Kafka。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;3.协助完成Hive中的数据分析。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&amp;nbsp;&amp;nbsp;4.完成与工作相关的技术文档编写。</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span>&gt;</span></span></span><br><span class="line">:::&#123;.content-center&#125;</span><br><span class="line">:::flexblock &#123;.specs&#125;</span><br><span class="line"><span class="section">## 自我评价</span></span><br><span class="line">1.善于学习总结，乐于分享，运营个人公众号&quot;小康新鲜事儿&quot;。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">2.抗压能力强，能快速适应公司的开发环境，能快速融入、凝聚团队。<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">3.良好的表达与沟通能力，积极主动，对工作尽心尽责。</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">slide</span> <span class="attr">class</span>=<span class="string">&quot;bg-black-blue aligncenter&quot;</span> <span class="attr">image</span>=<span class="string">&quot;https://cn.bing.com/az/hprichbg/rb/PragueChristmas_EN-AU8649790921_1920x1080.jpg .dark&quot;</span>&gt;</span></span></span><br><span class="line"><span class="section">## 感谢您查看我的简历 &#123;.animated.tada&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">[<span class="string">:fa-cloud-download: nodeppt提供服务</span>](<span class="link">https://github.com/ksky521/nodeppt</span>)&#123;.button.animated.delay-1s.fadeInUp&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-本地预览效果"><a href="#2-3-本地预览效果" class="headerlink" title="2.3 本地预览效果"></a>2.3 本地预览效果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\NodePPT\nodeppt-在线简历制作&gt;nodeppt serve profile.md</span><br><span class="line"></span><br><span class="line">  NodePPT running at:</span><br><span class="line">  - Url: http://192.168.56.1:8081/</span><br><span class="line">  - Speaker Mode: http://192.168.56.1:8081/?mode=speaker</span><br></pre></td></tr></table></figure>
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/profile-local.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 三、部署
+
+<h3 id="3-1-GitHub上创建一个项目"><a href="#3-1-GitHub上创建一个项目" class="headerlink" title="3.1 GitHub上创建一个项目"></a>3.1 GitHub上创建一个项目</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/github-1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+把地址记下来：[https://github.com/xiaokangxxs/nodeppt-profile.git](https://github.com/xiaokangxxs/nodeppt-profile.git)
+
+<h3 id="3-2-打包本地项目"><a href="#3-2-打包本地项目" class="headerlink" title="3.2 打包本地项目"></a>3.2 打包本地项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\NodePPT\nodeppt-在线简历制作&gt;nodeppt build profile.md</span><br><span class="line"></span><br><span class="line"> DONE  Compiled successfully in 5387ms</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-将本地项目提交至GitHub"><a href="#3-3-将本地项目提交至GitHub" class="headerlink" title="3.3 将本地项目提交至GitHub"></a>3.3 将本地项目提交至GitHub</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 初始化</span></span><br><span class="line">git init</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加远程库地址</span></span><br><span class="line">git remote add nodepptProfile https://github.com/xiaokangxxs/nodeppt-profile.git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将所有文件提交至暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交至本地库</span></span><br><span class="line">git commit -m &quot;init profile&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 推送至GitHub远程库</span></span><br><span class="line">git push nodepptProfile master</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-开启GitHub-Pages"><a href="#3-4-开启GitHub-Pages" class="headerlink" title="3.4 开启GitHub Pages"></a>3.4 开启GitHub Pages</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/github-2.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 3.5 查看效果
+
+<p>开启GitHub Pages后稍等片刻即可访问制作的简历，地址：<a href="https://xiaokangxxs.github.io/nodeppt-profile/dist/profile.html">https://xiaokangxxs.github.io/nodeppt-profile/dist/profile.html</a></p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/github-3.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 3.6 部署至码云（访问速度更快）
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/gitee-1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+将`3.1`中的地址复制过来
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/gitee-2.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+点击`导入`后，来到代码主界面，点击`服务`选择`Gitee Pages`，按照下图配置后点击启动
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/gitee-3.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/gitee-4.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+地址：[https://xiaokang_188.gitee.io/nodeppt-profile/dist/profile.html](https://xiaokang_188.gitee.io/nodeppt-profile/dist/profile.html)，最终效果如下图所示：
+
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/profile/product.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 四、写在最后
+
+<p>此文档记录了如何使用 nodeppt 结合 GitHub 和 Gitee 制作一份儿在线简历！另外，nodeppt 官方GitHub上也有相应的教程，不过我的这个文档比较贴合实际，方便大家快速上手。 记得三连哦！！！最后附上视频链接地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ot4y1Q7ne">手把手教你做一份儿在线简历</a></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>xiaokang</li>
+    <li><strong>本文链接：</strong><a href="https://xiaokangxxs.github.io/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/index.html" title="https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86&#x2F;index.html">https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;24&#x2F;%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/"><i class="iconfont iconleft"></i>Kafka你了解多少？</a>
+    <a href="/2021/04/24/RDD%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90/">RDD常用算子<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz",
+        app_key: "3OBhxaI3STYwiLVnSUv6PzzF",
+        placeholder: "留下你的足迹",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85nodeppt"><span class="toc-text">一、安装nodeppt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E5%86%99%E7%AE%80%E5%8E%86"><span class="toc-text">二、编写简历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%BD%BF%E7%94%A8nodeppt%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6"><span class="toc-text">2.1 使用nodeppt生成模板文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%94%B9%E5%86%99%E5%86%85%E5%AE%B9"><span class="toc-text">2.2 改写内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C"><span class="toc-text">2.3 本地预览效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-GitHub%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.1 GitHub上创建一个项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%89%93%E5%8C%85%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.2 打包本地项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%B0%86%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E8%87%B3GitHub"><span class="toc-text">3.3 将本地项目提交至GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%BC%80%E5%90%AFGitHub-Pages"><span class="toc-text">3.4 开启GitHub Pages</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1181259634 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://xiaokangxxs.github.io/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xiaokangxxs "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:xiaokang.188@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#0074D9" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/js/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="/js/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="/js/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+  <script>
+  $.getScript("//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js", () => {
+
+    AV.init({
+      appId: 'IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz',
+      appKey: '3OBhxaI3STYwiLVnSUv6PzzF',
+      serverURLs: 'https://leancloud.cn/',
+    });
+
+    const showCount = (Counter) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud").each(async (e) => {
+        const url = $(".leancloud").eq(e).attr('id').trim();
+        const query = new AV.Query("Counter");
+        query.equalTo("words", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud").eq(e).text(count ? count : '--');
+      });
+    }
+
+    const addCount = (Counter) => {
+      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Counter;
+      query.save({
+        words: url
+      });
+    }
+
+    $(function () {
+      const Counter = AV.Object.extend("Counter");
+      addCount(Counter);
+      showCount(Counter);
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/lottie-player.js"></script>
+
+
+</html>
