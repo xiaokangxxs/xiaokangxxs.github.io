@@ -67,8 +67,8 @@
       },
       donate: {
         enable: true,
-        alipay: 'https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/gzh.jpg',
-        wechat: 'https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/gzh.jpg'
+        alipay: '/images/pay/alipay.png',
+        wechat: '/images/pay/wxpay.png'
       },
       galleries: {
         enable: true
@@ -187,8 +187,22 @@
   <div class="preview-image">
     
         
-          <img src="/images/theme/cloud.png" class="preview-overlay" draggable="false">
-            
+              <div class="preview-overlay">
+                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                  <defs>
+                    <path id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                  </defs>
+                  <g class="preview-parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
+                  </g>
+                </svg>
+              </div>
+              
   </div>
   <div class="preview-motto-wrapper">
     <h2 class="preview-motto" id="motto">
@@ -278,7 +292,7 @@ python简介1. Python的历史1989年圣诞节，著名的“龟叔” Guido van
         href="mailto:xiaokang.188@qq.com "
         target="_blank"
         class="footer-social-item"
-        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOver="this.style.color=#0074D9" 
         onMouseOut="this.style.color='#33333D'">
           <i class="iconfont  iconmail"></i>
       </a></div>

@@ -6,7 +6,7 @@
   --color-text-secondary: #4e4e4e;
   --color-text-third: #999;
   --color-border: #eee;
-  --background-image: url("/images/theme/welcome-image.jpg");
+  --background-image: url("/images/theme/welcome-image-light.jpg");
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -68,7 +68,7 @@ body a {
   text-decoration: none;
 }
 body a:hover {
-  color: #ff3b00;
+  color: #0074d9;
 }
 body a,
 body a:hover {
@@ -128,15 +128,15 @@ body input {
   outline: none;
 }
 *::selection {
-  background: #ff3b00;
+  background: #0074d9;
   color: #fff;
 }
 *::-moz-selection {
-  background: #ff3b00;
+  background: #0074d9;
   color: #fff;
 }
 *::-webkit-selection {
-  background: #ff3b00;
+  background: #0074d9;
   color: #fff;
 }
 .container {
@@ -856,7 +856,7 @@ body input {
 }
 @media (hover: hover) and (pointer: fine) {
   .fab:hover {
-    background-color: #ff3b00;
+    background-color: #0074d9;
     cursor: pointer;
   }
 }
@@ -1365,7 +1365,7 @@ body input {
   text-align: justify;
 }
 .search .search-container .search-output .search-result-list .search-result .search-keyword {
-  color: #ff3b00;
+  color: #0074d9;
   font-style: normal;
 }
 .search .search-container .search-close {
@@ -1588,7 +1588,7 @@ body input {
   background-color: var(--color-background-secondary);
   padding: 2px 5px;
   border-radius: 2px;
-  color: #ff3b00;
+  color: #0074d9;
 }
 .article .wrap .main .content a {
   text-decoration: underline;
@@ -1654,7 +1654,7 @@ body input {
   margin: 0 0 1em;
   padding: 15px 20px;
   background-color: var(--color-background-secondary);
-  border-left: 4px solid #ff3b00;
+  border-left: 4px solid #0074d9;
 }
 .article .wrap .main .content blockquote p {
   margin: 0;
@@ -1663,7 +1663,7 @@ body input {
   margin-top: 50px;
 }
 .article .wrap .main .extra .copyright {
-  border-left: 4px solid #ff3b00;
+  border-left: 4px solid #0074d9;
   background-color: var(--color-background-secondary);
   list-style: none;
   padding: 15px 20px;
@@ -1748,7 +1748,7 @@ body input {
 }
 .article .wrap .main .extra .tag-list .tag-list-item:hover {
   cursor: pointer;
-  background-color: #ff3b00;
+  background-color: #0074d9;
 }
 .article .wrap .main .extra .tag-list .tag-list-item:hover a {
   color: #fff;
@@ -1771,7 +1771,7 @@ body input {
   text-align: center;
 }
 .article .wrap .main .comments .btn:hover {
-  background-color: #ff3b00;
+  background-color: #0074d9;
   color: #fff;
   transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
   cursor: pointer;
@@ -1871,7 +1871,7 @@ body input {
   border-left: 3px solid transparent;
 }
 .toc-wrap .toc .toc-link.active {
-  color: #ff3b00;
+  color: #0074d9;
   font-weight: bold;
 }
 .toc-wrap .toc .toc-child {
@@ -1981,7 +1981,7 @@ body input {
   margin-right: 10px;
 }
 .tags a:hover {
-  background-color: #ff3b00;
+  background-color: #0074d9;
   color: #fff !important;
 }
 .galleries {
