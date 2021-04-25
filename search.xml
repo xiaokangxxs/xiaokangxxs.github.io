@@ -61,6 +61,14 @@
 <p><img src="/Python/python-01/image-20210101151141665.png" alt="image-20210101151141665"></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">The Zen of Python, by Tim Peters<br>Python之禅 ，by Tim Peters<br><br>Beautiful is better than ugly.<br>优美好于丑陋（Python 以优美的代码为其风格，不要写丑陋的代码）<br><br>Explicit is better than implicit.<br>明了好于隐晦（Python的每一行代码、每一个变量、每一函数的意义应该是明确的，让人看了一目了然）<br><br>Simple is better than complex.<br>简洁好于复杂（Python的每一行代码应当是简洁的，一行代码只为一个子功能）<br><br>Complex is better than complicated.<br>复杂好于凌乱（如果无法避免引入复杂的代码，也要尽量保证代码之间明确简洁的关系）<br><br>Flat is better than nested.<br>扁平好于嵌套（Python的代码结构应该是扁平的，不应该有太多嵌套的结构）<br><br>Sparse is better than dense.<br>稀疏好于密集（Python代码之间应该是有间隔的，每个功能块、每个函数、每个参数、每个类之间应当有适当的间距）<br><br>Readability counts.<br>代码可读性很重要（Python代码具有很好的可读性，注释、变量名、函数名、类名、模块名、代码块功能等的作用和意义都是一目了然的）<br><br>Special cases aren&#x27;t special enough to break the rules.<br>Although practicality beats purity.<br>虽然实用性很重要，但任何特殊情况都不足以特殊到违背上述规则（不要为了处理某一个特殊情况，而破坏了上述任何一个规则）<br><br>Errors should never pass silently.<br>Unless explicitly silenced.<br>不要忽视任何错误，除非有意为之（任何时候都要对异常和错误进行处理，不要写 except:pass 风格的代码）<br><br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one-- and preferably only one --obvious way to do it.<br>面对模棱两可的情况，拒绝享受让别人去猜测的乐趣<br>提供有且仅有的一种最明显解决方法（解决一个问题的方法可能会有很多种，但在Python中，只选择最明显的那一个）<br><br>Although that way may not be obvious at first unless you&#x27;re Dutch.<br>虽然起初这很难做到，除非你是荷兰人（荷兰人暗指 Python之父：Guido van Rossum（龟叔） ）<br><br>Now is better than never.<br>Although never is often better than *right* now.<br>动手行动好于什么都不做，但不加思考就行动还不如不做<br><br>If the implementation is hard to explain, it&#x27;s a bad idea.<br>如果某问题一个代码实现很难解释，那说明这个实现不是很好<br><br>If the implementation is easy to explain, it may be a good idea.<br>如果某问题一个代码实现很简单，那这个实现可能走在正确的路上<br><br>Namespaces are one honking great idea -- let&#x27;s do more of those!<br>命名空间是一个很棒的注意，应当多加利用<br></code></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>xiaokang</tag>
+        <tag>教程</tag>
+        <tag>入门</tag>
+      </tags>
   </entry>
   <entry>
     <title>DataX安装及基本使用</title>
@@ -120,6 +128,14 @@ hdfswriter参数解析：
 <h4 id="3-根据模板编写json文件"><a href="#3-根据模板编写json文件" class="headerlink" title="3. 根据模板编写json文件"></a>3. 根据模板编写json文件</h4><figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;job&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;content&quot;</span>: [<br>            &#123;<br>                <span class="hljs-attr">&quot;reader&quot;</span>: &#123;<br>                    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;hdfsreader&quot;</span>, <br>                    <span class="hljs-attr">&quot;parameter&quot;</span>: &#123;<br>                        <span class="hljs-attr">&quot;column&quot;</span>: [<br>							<span class="hljs-string">&quot;*&quot;</span><br>                        ], <br>                        <span class="hljs-attr">&quot;defaultFS&quot;</span>: <span class="hljs-string">&quot;hdfs://hadoop:9000&quot;</span>, <br>                        <span class="hljs-attr">&quot;encoding&quot;</span>: <span class="hljs-string">&quot;UTF-8&quot;</span>, <br>                        <span class="hljs-attr">&quot;fieldDelimiter&quot;</span>: <span class="hljs-string">&quot;|&quot;</span>, <br>                        <span class="hljs-attr">&quot;fileType&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>, <br>                        <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;/datax/keyword.txt&quot;</span><br>                    &#125;<br>                &#125;, <br>                <span class="hljs-attr">&quot;writer&quot;</span>: &#123;<br>                    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;mysqlwriter&quot;</span>, <br>                    <span class="hljs-attr">&quot;parameter&quot;</span>: &#123;<br>                        <span class="hljs-attr">&quot;column&quot;</span>: [<br>							<span class="hljs-string">&quot;help_keyword_id&quot;</span>,<br>							<span class="hljs-string">&quot;name&quot;</span><br>                        ], <br>                        <span class="hljs-attr">&quot;connection&quot;</span>: [<br>                            &#123;<br>                                <span class="hljs-attr">&quot;jdbcUrl&quot;</span>: <span class="hljs-string">&quot;jdbc:mysql://192.168.1.106:3306/mysql&quot;</span>, <br>                                <span class="hljs-attr">&quot;table&quot;</span>: [<span class="hljs-string">&quot;help_keyword_from_hdfs_datax&quot;</span>]<br>                            &#125;<br>                        ], <br>                        <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;xiaokang&quot;</span>,  <br>                        <span class="hljs-attr">&quot;username&quot;</span>: <span class="hljs-string">&quot;root&quot;</span>, <br>                        <span class="hljs-attr">&quot;writeMode&quot;</span>: <span class="hljs-string">&quot;insert&quot;</span><br>                    &#125;<br>                &#125;<br>            &#125;<br>        ], <br>        <span class="hljs-attr">&quot;setting&quot;</span>: &#123;<br>            <span class="hljs-attr">&quot;speed&quot;</span>: &#123;<br>                <span class="hljs-attr">&quot;channel&quot;</span>: <span class="hljs-string">&quot;3&quot;</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="3-运行Job-2"><a href="#3-运行Job-2" class="headerlink" title="3. 运行Job"></a>3. 运行Job</h4><figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[xiaokang@hadoop json]$ /opt/software/datax/bin/datax.py ./hdfs2mysql.json<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>安装</tag>
+        <tag>使用</tag>
+        <tag>DataX</tag>
+      </tags>
   </entry>
   <entry>
     <title>64条常用正则</title>
@@ -251,6 +267,13 @@ hdfswriter参数解析：
 <h3 id="mac地址"><a href="#mac地址" class="headerlink" title="mac地址"></a>mac地址</h3><figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">/^((([a-f0-9]&#123;2&#125;:)&#123;5&#125;)|(([a-f0-9]&#123;2&#125;-)&#123;5&#125;))[a-f0-9]&#123;2&#125;$/i<br></code></pre></td></tr></table></figure>
 
 <h3 id="匹配连续重复的字符"><a href="#匹配连续重复的字符" class="headerlink" title="匹配连续重复的字符"></a>匹配连续重复的字符</h3><figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">/(.)\1+/<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>正则</category>
+      </categories>
+      <tags>
+        <tag>日常使用</tag>
+        <tag>匹配</tag>
+      </tags>
   </entry>
   <entry>
     <title>Kafka你了解多少？</title>
@@ -334,6 +357,15 @@ hdfswriter参数解析：
 
 <p><strong>Kafka内存调整（kafka-server-start.sh）</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 默认内存1个G，生产环境尽量不要超过6个G。</span><br>export KAFKA_HEAP_OPTS=&quot;-Xms4g -Xmx4g&quot;<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>消息队列</tag>
+        <tag>Kafka</tag>
+        <tag>消费</tag>
+        <tag>MQ</tag>
+      </tags>
   </entry>
   <entry>
     <title>手把手教你做一份儿在线简历</title>
@@ -384,6 +416,14 @@ hdfswriter参数解析：
 
 <p>此文档记录了如何使用 nodeppt 结合 GitHub 和 Gitee 制作一份儿在线简历！另外，nodeppt 官方GitHub上也有相应的教程，不过我的这个文档比较贴合实际，方便大家快速上手。 记得三连哦！！！最后附上视频链接地址：<a href="https://www.bilibili.com/video/BV1ot4y1Q7ne">手把手教你做一份儿在线简历</a></p>
 ]]></content>
+      <categories>
+        <category>简历</category>
+      </categories>
+      <tags>
+        <tag>实用</tag>
+        <tag>简历</tag>
+        <tag>在线</tag>
+      </tags>
   </entry>
   <entry>
     <title>RDD常用算子</title>
@@ -621,6 +661,14 @@ hdfswriter参数解析：
 <h3 id="2-7-saveAsTextFile"><a href="#2-7-saveAsTextFile" class="headerlink" title="2.7 saveAsTextFile"></a>2.7 saveAsTextFile</h3><p>将RDD中的元素以文本文件的形式写入本地文件系统、HDFS或其它Hadoop支持的文件系统中。Spark将对每个元素调用toString方法，将元素转换为文本文件中的一行记录。</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><code class="hljs scala">scala&gt; <span class="hljs-keyword">val</span> list=<span class="hljs-type">List</span>((<span class="hljs-string">&quot;hadoop&quot;</span>,<span class="hljs-number">10</span>),(<span class="hljs-string">&quot;hadoop&quot;</span>,<span class="hljs-number">10</span>),(<span class="hljs-string">&quot;xiaokangxxs&quot;</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">&quot;spark&quot;</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">&quot;azkaban&quot;</span>, <span class="hljs-number">1</span>))<br>scala&gt; sc.parallelize(list).saveAsTextFile(<span class="hljs-string">&quot;file:///home/xiaokang/file_out&quot;</span>)<br><br>[xiaokang<span class="hljs-meta">@xk</span>1181259634 ~/file_out <span class="hljs-number">18</span>:<span class="hljs-number">03</span>:<span class="hljs-number">23</span>]$cat /home/xiaokang/file_out/part<span class="hljs-number">-00000</span><br>(hadoop,<span class="hljs-number">10</span>)<br>(hadoop,<span class="hljs-number">10</span>)<br>(xiaokangxxs,<span class="hljs-number">3</span>)<br>(spark,<span class="hljs-number">3</span>)<br>(azkaban,<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>RDD</tag>
+        <tag>算子</tag>
+      </tags>
   </entry>
   <entry>
     <title>WebScraper爬虫</title>
@@ -672,6 +720,14 @@ Start URL：把需要爬取的网页链接复制到这里。
 <p>2、获取2-6页，步长为2的页面：[2-6:2]</p>
 <p>这里小编只是简单介绍总结了Web Scraper的插件的安装以及一个简单的单页面例子。其实Web Scraper的功能远远不止于此，它还能抓取分页、多页多元素的页面，还能抓取二级页面。需要大家自己慢慢摸索~~~ </p>
 ]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>chrome插件</tag>
+        <tag>手把手教学</tag>
+      </tags>
   </entry>
   <entry>
     <title>实用网站</title>
@@ -813,5 +869,13 @@ Start URL：把需要爬取的网页链接复制到这里。
 <li>免费版权图片搜索：<a href="https://www.logosc.cn/so/">https://www.logosc.cn/so/</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+        <tag>推荐</tag>
+        <tag>实用</tag>
+      </tags>
   </entry>
 </search>
