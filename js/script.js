@@ -1,5 +1,4 @@
 console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; color:#ffffff", "", "https://mp.weixin.qq.com/s/3-3_Ns5nDIhcB7TS7d-ocA");
-
 (function ($) {
   "use strict";
 
