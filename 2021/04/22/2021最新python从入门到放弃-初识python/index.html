@@ -66,12 +66,12 @@
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: '/images/theme/loading.gif'
+        loading: 'http://file.xiaokang.cool/index_theme/loading.gif'
       },
       donate: {
         enable: true,
-        alipay: '/images/pay/alipay.png',
-        wechat: '/images/pay/wxpay.png'
+        alipay: 'http://file.xiaokang.cool/pay/alipay.png',
+        wechat: 'http://file.xiaokang.cool/pay/wxpay.png'
       },
       galleries: {
         enable: true
@@ -101,7 +101,7 @@
       qrcode: {
         enable: true,
         type: 'image',
-        image: '/images/gzh.jpg',
+        image: 'http://file.xiaokang.cool/mini_wechat_xiaokangxxs.jpg',
       },
       toc: {
         enable: true
@@ -192,7 +192,7 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/python/python-01/cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/cover.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
     <h1 class="head-title">2021最新python从入门到放弃-初识python</h1>
     <div class="head-info">
@@ -202,7 +202,7 @@
           <i class="iconfont iconeye"></i><span id="/2021/04/22/2021%E6%9C%80%E6%96%B0python%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83-%E5%88%9D%E8%AF%86python/" class="leancloud" data-flag-title="2021最新python从入门到放弃-初识python"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4112</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4100</span>
     </div>
   </div>
 </section>
@@ -236,21 +236,21 @@
 <h3 id="3-Python的应用领域"><a href="#3-Python的应用领域" class="headerlink" title="3. Python的应用领域"></a>3. Python的应用领域</h3><p>目前Python在Web后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、运维开发、自动化测试、数据分析、机器学习、人工智能等领域都有着广泛的应用。</p>
 <h2 id="搭建编程环境"><a href="#搭建编程环境" class="headerlink" title="搭建编程环境"></a>搭建编程环境</h2><p>视频中使用的Python版本下载链接：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/release/python-371/">Python 3.7.1  <strong>Release Date:</strong> Oct. 20, 2018</a></p>
 <h3 id="1-Windows环境"><a href="#1-Windows环境" class="headerlink" title="1. Windows环境"></a>1. Windows环境</h3><p>从上方Python官网下载Python 3.7.1的exe安装包，双击进行安装，特别要注意勾上<code>Add Python 3.7 to PATH</code>， 然后点“Install Now”即可完成安装。  </p>
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101144401100.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101144401100"></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101144401100.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101144401100"></p>
 <p>安装成功如下如图所示</p>
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101143742245.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101143742245"></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101143742245.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101143742245"></p>
 <p>验证：</p>
 <p>安装成功后， 打开命令提示符窗口， 敲入<code>python --version</code>，出现下图说明成功</p>
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101145002004.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101145002004"></p>
-<p><code>–**web-based installer**：在线安装。下载的是一个exe可执行程序，双击后，该程序自动下载安装文件（需要有网络）进行安装。  –**executable installer**：程序安装。下载的是一个exe可执行程序，双击进行安装。  –**embeddable zip file**：解压安装。下载的是一个压缩文件，解压后即表示安装完成。</code></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101145002004.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101145002004"></p>
+<p><code>–web-based installer：在线安装。下载的是一个exe可执行程序，双击后，该程序自动下载安装文件（需要有网络）进行安装。  –executable installer：程序安装。下载的是一个exe可执行程序，双击进行安装。  –embeddable zip file：解压安装。下载的是一个压缩文件，解压后即表示安装完成。</code></p>
 <h3 id="2-Linux环境"><a href="#2-Linux环境" class="headerlink" title="2. Linux环境"></a>2. Linux环境</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FNXjVGzIJlNDLbS6u0j6Pg">Linux下Python的安装-视频教程</a></p>
 <h3 id="3-MacOS环境"><a href="#3-MacOS环境" class="headerlink" title="3. MacOS环境"></a>3. MacOS环境</h3><p>从上方Python官网下载Python 3.7.1的安装程序（网速慢的同学请移步国内镜像），双击运行并安装即可或者直接通过命令brew install python3安装即可。  </p>
 <h2 id="第一个python程序"><a href="#第一个python程序" class="headerlink" title="第一个python程序"></a>第一个python程序</h2><h3 id="1-在python自带的IDLE交互环境中执行代码"><a href="#1-在python自带的IDLE交互环境中执行代码" class="headerlink" title="1. 在python自带的IDLE交互环境中执行代码"></a>1. 在python自带的IDLE交互环境中执行代码</h3><p>首先打开命令提示符窗口， 敲入<code>python</code>，再输入以下语句</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 第一行python代码</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello xiaokang.WeChat:xiaokangxxs&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101150005489.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101150005489"></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101150005489.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101150005489"></p>
 <h3 id="2-使用python命令运行程序"><a href="#2-使用python命令运行程序" class="headerlink" title="2. 使用python命令运行程序"></a>2. 使用python命令运行程序</h3><p>首先在当前目录创建一个名为<code>hello.py</code>的文件，将上面的语句输入进去保存，然后在当前目录打开命令提示符窗口，输入<code>python hello.py</code></p>
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101150349268.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101150349268"></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101150349268.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101150349268"></p>
 <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释是编程语言中一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。</p>
 <ol>
 <li>单行注释：以#开头的部分</li>
@@ -263,7 +263,7 @@
 <h2 id="python之禅"><a href="#python之禅" class="headerlink" title="python之禅"></a>python之禅</h2><p>在Python自带的IDLE交互式环境中输入下面的代码就可以看到python的设计理念（禅）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> this<br></code></pre></td></tr></table></figure>
 
-<p><img   class="lazyload" data-original="/Python/python-01/image-20210101151141665.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101151141665"></p>
+<p><img   class="lazyload" data-original="http://file.xiaokang.cool/python-01/image-20210101151141665.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210101151141665"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs html">The Zen of Python, by Tim Peters<br>Python之禅 ，by Tim Peters<br><br>Beautiful is better than ugly.<br>优美好于丑陋（Python 以优美的代码为其风格，不要写丑陋的代码）<br><br>Explicit is better than implicit.<br>明了好于隐晦（Python的每一行代码、每一个变量、每一函数的意义应该是明确的，让人看了一目了然）<br><br>Simple is better than complex.<br>简洁好于复杂（Python的每一行代码应当是简洁的，一行代码只为一个子功能）<br><br>Complex is better than complicated.<br>复杂好于凌乱（如果无法避免引入复杂的代码，也要尽量保证代码之间明确简洁的关系）<br><br>Flat is better than nested.<br>扁平好于嵌套（Python的代码结构应该是扁平的，不应该有太多嵌套的结构）<br><br>Sparse is better than dense.<br>稀疏好于密集（Python代码之间应该是有间隔的，每个功能块、每个函数、每个参数、每个类之间应当有适当的间距）<br><br>Readability counts.<br>代码可读性很重要（Python代码具有很好的可读性，注释、变量名、函数名、类名、模块名、代码块功能等的作用和意义都是一目了然的）<br><br>Special cases aren&#x27;t special enough to break the rules.<br>Although practicality beats purity.<br>虽然实用性很重要，但任何特殊情况都不足以特殊到违背上述规则（不要为了处理某一个特殊情况，而破坏了上述任何一个规则）<br><br>Errors should never pass silently.<br>Unless explicitly silenced.<br>不要忽视任何错误，除非有意为之（任何时候都要对异常和错误进行处理，不要写 except:pass 风格的代码）<br><br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one-- and preferably only one --obvious way to do it.<br>面对模棱两可的情况，拒绝享受让别人去猜测的乐趣<br>提供有且仅有的一种最明显解决方法（解决一个问题的方法可能会有很多种，但在Python中，只选择最明显的那一个）<br><br>Although that way may not be obvious at first unless you&#x27;re Dutch.<br>虽然起初这很难做到，除非你是荷兰人（荷兰人暗指 Python之父：Guido van Rossum（龟叔） ）<br><br>Now is better than never.<br>Although never is often better than *right* now.<br>动手行动好于什么都不做，但不加思考就行动还不如不做<br><br>If the implementation is hard to explain, it&#x27;s a bad idea.<br>如果某问题一个代码实现很难解释，那说明这个实现不是很好<br><br>If the implementation is easy to explain, it may be a good idea.<br>如果某问题一个代码实现很简单，那这个实现可能走在正确的路上<br><br>Namespaces are one honking great idea -- let&#x27;s do more of those!<br>命名空间是一个很棒的注意，应当多加利用<br></code></pre></td></tr></table></figure>
 
       </section>
@@ -280,7 +280,7 @@
         
           <section class="donate">
   <div id="qrcode-donate">
-    <img   class="lazyload" data-original="/images/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+    <img   class="lazyload" data-original="http://file.xiaokang.cool/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
   </div>
   <div class="icon">
     <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
