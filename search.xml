@@ -420,8 +420,8 @@ hdfswriter参数解析：
         <category>简历</category>
       </categories>
       <tags>
-        <tag>简历</tag>
         <tag>实用</tag>
+        <tag>简历</tag>
         <tag>在线</tag>
       </tags>
   </entry>
@@ -873,9 +873,9 @@ Start URL：把需要爬取的网页链接复制到这里。
         <category>其它</category>
       </categories>
       <tags>
-        <tag>实用</tag>
         <tag>网站</tag>
         <tag>推荐</tag>
+        <tag>实用</tag>
       </tags>
   </entry>
 </search>
