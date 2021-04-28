@@ -157,9 +157,8 @@
 
 <h3 id="4-验证安装是否成功"><a href="#4-验证安装是否成功" class="headerlink" title="4. 验证安装是否成功"></a>4. 验证安装是否成功</h3><p>输入<code>scala</code>，如果能进入 Scala 交互环境，则代表安装成功：</p>
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/linux_scala.png"/> </div>
-## 三、Scala 的 Hello world 案例
 
-<p><code>需要提前给IDEA安装好Scala插件</code>，插件下载地址：<a href="https://plugins.jetbrains.com/plugin/1347-scala/versions">https://plugins.jetbrains.com/plugin/1347-scala/versions</a></p>
+<h2 id="三、Scala-的-Hello-world-案例"><a href="#三、Scala-的-Hello-world-案例" class="headerlink" title="三、Scala 的 Hello world 案例"></a>三、Scala 的 Hello world 案例</h2><p><code>需要提前给IDEA安装好Scala插件</code>，插件下载地址：<a href="https://plugins.jetbrains.com/plugin/1347-scala/versions">https://plugins.jetbrains.com/plugin/1347-scala/versions</a></p>
 <h3 id="1-创建一个-Maven-工程"><a href="#1-创建一个-Maven-工程" class="headerlink" title="1. 创建一个 Maven 工程"></a>1. 创建一个 Maven 工程</h3><h3 id="2-引入-Scala-框架"><a href="#2-引入-Scala-框架" class="headerlink" title="2. 引入 Scala 框架"></a>2. 引入 Scala 框架</h3><p>默认下，maven 不支持 scala 的开发，需要引入 scala 框架。 </p>
 <p>点击项目-&gt; 右键 -&gt; add framework support… ，在下图选择scala </p>
 <div align="center"> <img width="600px" src="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/idea_scala_sdk.png"/> </div>
