@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<html lang="zh_CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scala环境搭建 - 小康的宝藏库</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="baidu-site-verification" content="code-Bkr3bnJzCR">
+  <meta name="keywords" content="xiaokang, hexo, life, Scala, Java">
+  <meta name="description" content="
+系统环境：CentOS 7.x、Windows10
+...">
+  <meta name="author" content="xiaokang">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="/css/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="/css/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="/css/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: 'http://file.xiaokang.cool/index_theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'http://file.xiaokang.cool/pay/alipay.png',
+        wechat: 'http://file.xiaokang.cool/pay/wxpay.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '遇见的人，经历的事，都有它存在的意义。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'image',
+        image: 'http://file.xiaokang.cool/mini_wechat_xiaokangxxs.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: '/search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">Scala环境搭建</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Copyright © 2020-2021 小康 Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  <a target="_blank" href="https://www.xiaokang.cool/">小康个人文档</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="http://file.xiaokang.cool/colorful/colorful-11.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Scala环境搭建</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 28, 2021</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2021/04/28/Scala%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="leancloud" data-flag-title="Scala环境搭建"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1833</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <blockquote>
+<p><strong>系统环境</strong>：CentOS 7.x、Windows10</p>
+<p><strong>JDK 版本</strong>：1.8+</p>
+</blockquote>
+<h2 id="一、Window-下搭建开发环境"><a href="#一、Window-下搭建开发环境" class="headerlink" title="一、Window 下搭建开发环境"></a>一、Window 下搭建开发环境</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><p>确保 JDK8 安装成功, 并成功配置环境变量:<code>JAVA_HOME</code>, <code>Path</code></p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/Windows-env.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>下载对应的Scala安装文件，我这里下载的是<code>scala-2.11.12.zip </code>，下载地址： <a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/2.11.12.html">https://www.scala-lang.org/download/2.11.12.html</a></p>
+<h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h3><p>解压<code>scala-2.11.12.zip</code>，我这里解压到<code>E:\software</code></p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_dir.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4. 配置环境变量"></a>4. 配置环境变量</h3><p>配置 Scala 环境变量:<code>SCALA_HOME</code>和<code>Path</code></p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_home.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_path.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="5-验证安装是否成功"><a href="#5-验证安装是否成功" class="headerlink" title="5. 验证安装是否成功"></a>5. 验证安装是否成功</h3><p>按下键盘的<code>Win+R</code>后，输入<code>cmd</code>回车，输入Scala，如果能进入 Scala 交互环境，则代表安装成功：</p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/win_scala.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 二、Linux 下搭建开发环境
+
+<h3 id="1-环境准备-1"><a href="#1-环境准备-1" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><p>确保 JDK8 安装成功</p>
+<h3 id="2-下载解压"><a href="#2-下载解压" class="headerlink" title="2. 下载解压"></a>2. 下载解压</h3><p>下载对应的Scala安装文件，我这里下载的是<code>scala-2.11.12.tgz </code>，下载地址： <a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/2.11.12.html">https://www.scala-lang.org/download/2.11.12.html</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[xiaokang@hadoop ~]$ tar -zxvf scala-2.11.12.tgz -C /opt/moudle/<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[xiaokang@hadoop ~]$ sudo vim /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p>在原有的基础上添加如下环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export SCALA_HOME=/opt/moudle/scala-2.11.12<br>export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;HADOOP_HOME&#125;/bin:$&#123;HADOOP_HOME&#125;/sbin:$&#123;ZOOKEEPER_HOME&#125;/bin:$&#123;HIVE_HOME&#125;/bin:$&#123;ZEPPELIN_HOME&#125;/bin:$&#123;HBASE_HOME&#125;/bin:$&#123;SQOOP_HOME&#125;/bin:$&#123;FLUME_HOME&#125;/bin:$&#123;PYTHON_HOME&#125;/bin:$&#123;SCALA_HOME&#125;/bin:$PATH<br></code></pre></td></tr></table></figure>
+
+<p>使得配置的环境变量立即生效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[xiaokang@hadoop ~]$ source /etc/profile<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-验证安装是否成功"><a href="#4-验证安装是否成功" class="headerlink" title="4. 验证安装是否成功"></a>4. 验证安装是否成功</h3><p>输入<code>scala</code>，如果能进入 Scala 交互环境，则代表安装成功：</p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/linux_scala.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 三、Scala 的 Hello world 案例
+
+<p><code>需要提前给IDEA安装好Scala插件</code>，插件下载地址：<a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/1347-scala/versions">https://plugins.jetbrains.com/plugin/1347-scala/versions</a></p>
+<h3 id="1-创建一个-Maven-工程"><a href="#1-创建一个-Maven-工程" class="headerlink" title="1. 创建一个 Maven 工程"></a>1. 创建一个 Maven 工程</h3><h3 id="2-引入-Scala-框架"><a href="#2-引入-Scala-框架" class="headerlink" title="2. 引入 Scala 框架"></a>2. 引入 Scala 框架</h3><p>默认下，maven 不支持 scala 的开发，需要引入 scala 框架。 </p>
+<p>点击项目-&gt; 右键 -&gt; add framework support… ，在下图选择scala </p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/idea_scala_sdk.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_sdk.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="3-创建项目的源文件目录"><a href="#3-创建项目的源文件目录" class="headerlink" title="3. 创建项目的源文件目录"></a>3. 创建项目的源文件目录</h3><p>在 <code>main</code> 下创建一个文件夹作为 scala 源文件的根目录, 比如目录名: <code>scala</code>, 然后标记为源文件根目录 </p>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_source.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+
+<h3 id="4-创建-Scala-的类"><a href="#4-创建-Scala-的类" class="headerlink" title="4. 创建 Scala 的类"></a>4. 创建 Scala 的类</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_class.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_object.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span>: 小康</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span>: 2020/4/9 17:25</span><br><span class="hljs-comment"> *        微信公众号：小康新鲜事儿</span><br><span class="hljs-comment"> *        小康个人文档：http://www.xiaokang.cool/</span><br><span class="hljs-comment"> */</span><br>object HelloWorld &#123;<br>  <span class="hljs-function">def <span class="hljs-title">main</span><span class="hljs-params">(args: Array[String])</span>: Unit </span>= &#123;<br>    println(<span class="hljs-string">&quot;hello,world-Scala&quot;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-运行"><a href="#5-运行" class="headerlink" title="5. 运行"></a>5. 运行</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_hello.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+demo代码下载地址：[scala_demo](https://github.com/xiaokangxxs/notebook/tree/master/docs/code/scala_demo)
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>xiaokang</li>
+    <li><strong>本文链接：</strong><a href="https://xiaokangxxs.github.io/2021/04/28/Scala%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html" title="https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;28&#x2F;Scala%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;index.html">https:&#x2F;&#x2F;xiaokangxxs.github.io&#x2F;2021&#x2F;04&#x2F;28&#x2F;Scala%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="http://file.xiaokang.cool/pay/alipay.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag">环境搭建</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/04/28/HDFS-JavaAPI/">HDFS-JavaAPI<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz",
+        app_key: "3OBhxaI3STYwiLVnSUv6PzzF",
+        placeholder: "留下你的足迹",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Window-%E4%B8%8B%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">一、Window 下搭建开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD"><span class="toc-text">2. 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%A3%E5%8E%8B"><span class="toc-text">3. 解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">4. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">5. 验证安装是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8B"><span class="toc-text">2. 下载解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">3. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">4. 验证安装是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-Maven-%E5%B7%A5%E7%A8%8B"><span class="toc-text">1. 创建一个 Maven 工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5-Scala-%E6%A1%86%E6%9E%B6"><span class="toc-text">2. 引入 Scala 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BA%90%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-text">3. 创建项目的源文件目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA-Scala-%E7%9A%84%E7%B1%BB"><span class="toc-text">4. 创建 Scala 的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%90%E8%A1%8C"><span class="toc-text">5. 运行</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1181259634 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://xiaokangxxs.github.io/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xiaokangxxs "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:xiaokang.188@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#0074D9" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  <div class="footer-copyright"><p>Copyright © 2020-2021 小康 Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  <a target="_blank" href="https://www.xiaokang.cool/">小康个人文档</a></p></div>
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/js/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="/js/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="/js/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+  <script>
+  $.getScript("//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js", () => {
+
+    AV.init({
+      appId: 'IMFqh0JTe6U2wiKDaQpjT768-gzGzoHsz',
+      appKey: '3OBhxaI3STYwiLVnSUv6PzzF',
+      serverURLs: 'https://leancloud.cn/',
+    });
+
+    const showCount = (Counter) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud").each(async (e) => {
+        const url = $(".leancloud").eq(e).attr('id').trim();
+        const query = new AV.Query("Counter");
+        query.equalTo("words", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud").eq(e).text(count ? count : '--');
+      });
+    }
+
+    const addCount = (Counter) => {
+      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Counter;
+      query.save({
+        words: url
+      });
+    }
+
+    $(function () {
+      const Counter = AV.Object.extend("Counter");
+      addCount(Counter);
+      showCount(Counter);
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/lottie-player.js"></script>
+
+
+</html>

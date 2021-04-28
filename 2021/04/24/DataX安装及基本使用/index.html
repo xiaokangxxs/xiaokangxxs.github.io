@@ -200,7 +200,7 @@
           <i class="iconfont iconeye"></i><span id="/2021/04/24/DataX%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="leancloud" data-flag-title="DataX安装及基本使用"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>13055</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>13046</span>
     </div>
   </div>
 </section>
@@ -216,9 +216,8 @@
 </blockquote>
 <h2 id="一、DataX-概述"><a href="#一、DataX-概述" class="headerlink" title="一、DataX 概述"></a>一、DataX 概述</h2><p>DataX 是一个异构数据源离线同步工具，致力于实现包括关系型数据库(MySQL、Oracle等)、HDFS、Hive、ODPS、HBase、FTP等各种异构数据源之间稳定高效的数据同步功能。 </p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/datax_relation.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
-## 二、安装
 
-<h3 id="2-1-下载并解压"><a href="#2-1-下载并解压" class="headerlink" title="2.1 下载并解压"></a>2.1 下载并解压</h3><p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/DataX">https://github.com/alibaba/DataX</a> </p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="2-1-下载并解压"><a href="#2-1-下载并解压" class="headerlink" title="2.1 下载并解压"></a>2.1 下载并解压</h3><p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/alibaba/DataX">https://github.com/alibaba/DataX</a> </p>
 <p>这里我下载的是最新版本的 DataX3.0 。下载地址为：<a target="_blank" rel="noopener" href="http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz">http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz </a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载后进行解压</span><br>[xiaokang@hadoop ~]$ tar -zxvf datax.tar.gz -C /opt/software/<br></code></pre></td></tr></table></figure>
 
@@ -234,9 +233,8 @@
 <h4 id="3-运行Job"><a href="#3-运行Job" class="headerlink" title="3. 运行Job"></a>3. 运行Job</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[xiaokang@hadoop json]$ /opt/software/datax/bin/datax.py ./stream2stream.json<br></code></pre></td></tr></table></figure>
 
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/DataX/stream2stream.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
-### 3.2 MySQL数据导入到HDFS
 
-<p>示例：导出 MySQL 数据库中的 <code>help_keyword</code> 表到 HDFS 的 <code>/datax </code>目录下(此目录必须提前创建)。</p>
+<h3 id="3-2-MySQL数据导入到HDFS"><a href="#3-2-MySQL数据导入到HDFS" class="headerlink" title="3.2 MySQL数据导入到HDFS"></a>3.2 MySQL数据导入到HDFS</h3><p>示例：导出 MySQL 数据库中的 <code>help_keyword</code> 表到 HDFS 的 <code>/datax </code>目录下(此目录必须提前创建)。</p>
 <blockquote>
 <p>注：help_keyword 是 MySQL 内置的一张字典表，之后的示例均使用这张表。</p>
 </blockquote>
@@ -288,7 +286,7 @@ hdfswriter参数解析：
 
         
   <nav class="nav">
-    <a></a>
+    <a href="/2021/04/28/18%E4%B8%AA%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84Shell%E8%84%9A%E6%9C%AC/"><i class="iconfont iconleft"></i>18个开箱即用的Shell脚本</a>
     <a href="/2021/04/24/64%E6%9D%A1%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99/">64条常用正则<i class="iconfont iconright"></i></a>
   </nav>
 
@@ -335,7 +333,7 @@ hdfswriter参数解析：
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81DataX-%E6%A6%82%E8%BF%B0"><span class="toc-text">一、DataX 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8B"><span class="toc-text">2.1 下载并解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BF%90%E8%A1%8C%E8%87%AA%E6%A3%80%E8%84%9A%E6%9C%AC"><span class="toc-text">2.2 运行自检脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">三、基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8Estream%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%89%93%E5%8D%B0%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-text">3.1 从stream读取数据并打印到控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-HDFS%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E5%88%B0MySQL"><span class="toc-text">3.3 HDFS数据导出到MySQL</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81DataX-%E6%A6%82%E8%BF%B0"><span class="toc-text">一、DataX 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85"><span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8B"><span class="toc-text">2.1 下载并解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%BF%90%E8%A1%8C%E8%87%AA%E6%A3%80%E8%84%9A%E6%9C%AC"><span class="toc-text">2.2 运行自检脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">三、基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8Estream%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%B9%B6%E6%89%93%E5%8D%B0%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-text">3.1 从stream读取数据并打印到控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-MySQL%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%88%B0HDFS"><span class="toc-text">3.2 MySQL数据导入到HDFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-HDFS%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E5%88%B0MySQL"><span class="toc-text">3.3 HDFS数据导出到MySQL</span></a></li></ol></li></ol>
   </aside>
 
         
