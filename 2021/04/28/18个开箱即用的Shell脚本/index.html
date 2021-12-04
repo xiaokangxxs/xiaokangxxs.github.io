@@ -62,10 +62,17 @@
       isHome: false,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '',
+        lottie: 'https://assets7.lottiefiles.com/packages/lf20_ok9cq9zj.json'
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: 'http://file.xiaokang.cool/index_theme/loading.gif'
+        loading: {
+          gif: 'http://file.xiaokang.cool/index_theme/loading.gif',
+          lottie: 'https://assets7.lottiefiles.com/packages/lf20_ok9cq9zj.json'
+        }
       },
       donate: {
         enable: true,
@@ -129,7 +136,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -198,7 +205,10 @@
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 28, 2021</span>
       
         <span class="post-info-item">
-          <i class="iconfont iconeye"></i><span id="/2021/04/28/18%E4%B8%AA%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84Shell%E8%84%9A%E6%9C%AC/" class="leancloud" data-flag-title="18个开箱即用的Shell脚本"></span>
+          <i class="iconfont iconeye"></i><span id="/2021/04/28/18%E4%B8%AA%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84Shell%E8%84%9A%E6%9C%AC/" class="leancloud-counter" data-flag-title="18个开箱即用的Shell脚本"></span>
+        </span>
+        <span class="post-info-item">
+          <i class="iconfont iconheart"></i><span id="/2021/04/28/18%E4%B8%AA%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%E7%9A%84Shell%E8%84%9A%E6%9C%AC/" class="leancloud-like" data-flag-title="18个开箱即用的Shell脚本"></span>
         </span>
       
       <span class="post-info-item"><i class="iconfont iconfont-size"></i>18275</span>
@@ -207,6 +217,7 @@
 </section>
     <section class="main">
       <section class="content">
+		
         <p>1、检测两台服务器指定目录下的文件一致性</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#####################################</span></span><br>检测两台服务器指定目录下的文件一致性<br><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">####################################</span></span><br><span class="hljs-meta">#</span><span class="bash">通过对比两台服务器上文件的md5值，达到检测一致性的目的</span><br>dir=/data/web<br>b_ip=192.168.88.10<br><span class="hljs-meta">#</span><span class="bash">将指定目录下的文件全部遍历出来并作为md5sum命令的参数，进而得到所有文件的md5值，并写入到指定文件中</span><br>find $dir -type f|xargs md5sum &gt; /tmp/md5_a.txt<br>ssh $b_ip &quot;find $dir -type f|xargs md5sum &gt; /tmp/md5_b.txt&quot;<br>scp $b_ip:/tmp/md5_b.txt /tmp<br><span class="hljs-meta">#</span><span class="bash">将文件名作为遍历对象进行一一比对</span><br>for f in `awk &#x27;&#123;print 2&#125; /tmp/md5_a.txt&#x27;`do<br><span class="hljs-meta">#</span><span class="bash">以a机器为标准，当b机器不存在遍历对象中的文件时直接输出不存在的结果</span><br>if grep -qw &quot;$f&quot; /tmp/md5_b.txt<br>then<br>md5_a=`grep -w &quot;$f&quot; /tmp/md5_a.txt|awk &#x27;&#123;print 1&#125;&#x27;`<br>md5_b=`grep -w &quot;$f&quot; /tmp/md5_b.txt|awk &#x27;&#123;print 1&#125;&#x27;`<br><span class="hljs-meta">#</span><span class="bash">当文件存在时，如果md5值不一致则输出文件改变的结果</span><br>if [ $md5_a != $md5_b ]then<br>echo &quot;$f changed.&quot;<br>fi<br>else<br>echo &quot;$f deleted.&quot;<br>fi<br>done<br></code></pre></td></tr></table></figure>
 
@@ -451,6 +462,11 @@
     <i class="iconfont iconplus"></i>
   </div>
   
+    <div class="fab fab-like">
+      <i class="iconfont iconheart"></i>
+    </div>
+  
+  
   
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
@@ -480,6 +496,12 @@
 </body>
 
 <script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/lib/lottie/lottie.js"></script>
+
 
 
 
@@ -517,29 +539,68 @@
       serverURLs: 'https://leancloud.cn/',
     });
 
+    const Counter = AV.Object.extend("Counter");
+    const Like = AV.Object.extend("Like");
+
     const showCount = (Counter) => {
       const asyncLimit = new AsyncLimit(2);
-      $(".leancloud").each(async (e) => {
-        const url = $(".leancloud").eq(e).attr('id').trim();
+      $(".leancloud-counter").each(async (e) => {
+        const url = $(".leancloud-counter").eq(e).attr('id').trim();
         const query = new AV.Query("Counter");
         query.equalTo("words", url);
         let count = await asyncLimit.run(() => query.count());
-        $(".leancloud").eq(e).text(count ? count : '--');
+        $(".leancloud-counter").eq(e).text(count ? count : 0);
       });
     }
 
     const addCount = (Counter) => {
-      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      const url = $(".leancloud-counter").length === 1 ? $(".leancloud-counter").attr('id').trim() : 'https://xiaokangxxs.github.io';
       var query = new Counter;
       query.save({
         words: url
       });
     }
 
+    const showLike = (Like) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud-like").each(async (e) => {
+        const url = $(".leancloud-like").eq(e).attr('id').trim();
+        const query = new AV.Query("Like");
+        query.equalTo("path", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud-like").eq(e).text(count ? count : 0);
+      });
+    }
+
+    const addLike = (Like) => {
+      const url = $(".leancloud-like").length === 1 ? $(".leancloud-like").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Like;
+      query.save({
+        path: url,
+        nickName: 'Anonymous'
+      });
+      $(".leancloud-like").addClass('islike');
+      $(".fab-like").children(".iconfont").removeClass("iconheart").addClass("iconheart-fill").css("color", "#eb3223");
+      ZHAOO.zui.message({ text: '爱你哦~', type: 'success' });
+      setTimeout(() => showLike(Like), 1000);
+    }
+
+    const handleLikeClick = () => {
+      const isLike = $(".leancloud-like").length === 1 && $(".leancloud-like").hasClass('islike') ? true : false;
+      if (isLike) {
+        ZHAOO.zui.message({ text: '小心心不可以收回呢~', type: 'warning' });
+      } else {
+        addLike(Like);
+      }
+    }
+
     $(function () {
-      const Counter = AV.Object.extend("Counter");
       addCount(Counter);
       showCount(Counter);
+      showLike(Like);
+      $(".fab-like").on("click", function () {
+        handleLikeClick();
+      });
     });
 
   });

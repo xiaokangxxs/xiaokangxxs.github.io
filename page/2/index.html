@@ -61,10 +61,17 @@
       isHome: true,
       fancybox: true,
       pjax: false,
+      loading: {
+        gif: '',
+        lottie: 'https://assets7.lottiefiles.com/packages/lf20_ok9cq9zj.json'
+      },
       lazyload: {
         enable: true,
         only_post: 'false',
-        loading: 'http://file.xiaokang.cool/index_theme/loading.gif'
+        loading: {
+          gif: 'http://file.xiaokang.cool/index_theme/loading.gif',
+          lottie: 'https://assets7.lottiefiles.com/packages/lf20_ok9cq9zj.json'
+        }
       },
       donate: {
         enable: true,
@@ -128,7 +135,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="lock-screen">
-  <div class="loading"></div>
+  <div class="loading" id="loading"></div>
   
     
 
@@ -244,10 +251,12 @@ Kafka作为分布式消息队列，是以...</p>
         <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/" class="leancloud" data-flag-title="Kafka你了解多少？"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/" class="leancloud-counter" data-flag-title="Kafka你了解多少？"></span>
+          </span>
+          <span class="post-info-item">
+            <i class="iconfont iconheart"></i><span id="/2021/04/24/Kafka%E4%BD%A0%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91/" class="leancloud-like" data-flag-title="Kafka你了解多少？"></span>
           </span>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>9821</span>
       </div>
     </div>
   </div>
@@ -275,10 +284,12 @@ Kafka作为分布式消息队列，是以...</p>
         <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/" class="leancloud" data-flag-title="手把手教你做一份儿在线简历"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/" class="leancloud-counter" data-flag-title="手把手教你做一份儿在线简历"></span>
+          </span>
+          <span class="post-info-item">
+            <i class="iconfont iconheart"></i><span id="/2021/04/24/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%81%9A%E4%B8%80%E4%BB%BD%E5%84%BF%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/" class="leancloud-like" data-flag-title="手把手教你做一份儿在线简历"></span>
           </span>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>6257</span>
       </div>
     </div>
   </div>
@@ -304,10 +315,12 @@ Kafka作为分布式消息队列，是以...</p>
         <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/04/24/RDD%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90/" class="leancloud" data-flag-title="RDD常用算子"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/RDD%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90/" class="leancloud-counter" data-flag-title="RDD常用算子"></span>
+          </span>
+          <span class="post-info-item">
+            <i class="iconfont iconheart"></i><span id="/2021/04/24/RDD%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90/" class="leancloud-like" data-flag-title="RDD常用算子"></span>
           </span>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>11420</span>
       </div>
     </div>
   </div>
@@ -325,17 +338,20 @@ Kafka作为分布式消息队列，是以...</p>
       <div class="post-content-wrap">
         <h3 class="post-title"><a href="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" title="WebScraper爬虫" >WebScraper爬虫</a></h3>
         <div class="post-excerpt">
-          <p class="substr-3">chrome插件爬取数据，快来看看吧！</p>
+          <p class="substr-3">前置准备chrome浏览器、Web Scraper-0.2.0.18
+一、插件安装打开ch...</p>
         </div>
       </div>
       <div class="post-info">
         <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" class="leancloud" data-flag-title="WebScraper爬虫"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" class="leancloud-counter" data-flag-title="WebScraper爬虫"></span>
+          </span>
+          <span class="post-info-item">
+            <i class="iconfont iconheart"></i><span id="/2021/04/24/WebScraper%E7%88%AC%E8%99%AB/" class="leancloud-like" data-flag-title="WebScraper爬虫"></span>
           </span>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>1455</span>
       </div>
     </div>
   </div>
@@ -362,10 +378,12 @@ TED（最优质的演讲）：https://www....</p>
         <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 24, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" class="leancloud" data-flag-title="实用网站"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" class="leancloud-counter" data-flag-title="实用网站"></span>
+          </span>
+          <span class="post-info-item">
+            <i class="iconfont iconheart"></i><span id="/2021/04/24/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/" class="leancloud-like" data-flag-title="实用网站"></span>
           </span>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>3854</span>
       </div>
     </div>
   </div>
@@ -427,6 +445,7 @@ TED（最优质的演讲）：https://www....</p>
   </div>
   
   
+  
   <div class="fab fab-up">
     <i class="iconfont iconcaret-up"></i>
   </div>
@@ -455,6 +474,12 @@ TED（最优质的演讲）：https://www....</p>
 </body>
 
 <script src="/js/jquery.min.js"></script>
+
+
+
+  
+<script src="/lib/lottie/lottie.js"></script>
+
 
 
 
@@ -492,29 +517,68 @@ TED（最优质的演讲）：https://www....</p>
       serverURLs: 'https://leancloud.cn/',
     });
 
+    const Counter = AV.Object.extend("Counter");
+    const Like = AV.Object.extend("Like");
+
     const showCount = (Counter) => {
       const asyncLimit = new AsyncLimit(2);
-      $(".leancloud").each(async (e) => {
-        const url = $(".leancloud").eq(e).attr('id').trim();
+      $(".leancloud-counter").each(async (e) => {
+        const url = $(".leancloud-counter").eq(e).attr('id').trim();
         const query = new AV.Query("Counter");
         query.equalTo("words", url);
         let count = await asyncLimit.run(() => query.count());
-        $(".leancloud").eq(e).text(count ? count : '--');
+        $(".leancloud-counter").eq(e).text(count ? count : 0);
       });
     }
 
     const addCount = (Counter) => {
-      const url = $(".leancloud").length === 1 ? $(".leancloud").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      const url = $(".leancloud-counter").length === 1 ? $(".leancloud-counter").attr('id').trim() : 'https://xiaokangxxs.github.io';
       var query = new Counter;
       query.save({
         words: url
       });
     }
 
+    const showLike = (Like) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud-like").each(async (e) => {
+        const url = $(".leancloud-like").eq(e).attr('id').trim();
+        const query = new AV.Query("Like");
+        query.equalTo("path", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud-like").eq(e).text(count ? count : 0);
+      });
+    }
+
+    const addLike = (Like) => {
+      const url = $(".leancloud-like").length === 1 ? $(".leancloud-like").attr('id').trim() : 'https://xiaokangxxs.github.io';
+      var query = new Like;
+      query.save({
+        path: url,
+        nickName: 'Anonymous'
+      });
+      $(".leancloud-like").addClass('islike');
+      $(".fab-like").children(".iconfont").removeClass("iconheart").addClass("iconheart-fill").css("color", "#eb3223");
+      ZHAOO.zui.message({ text: '爱你哦~', type: 'success' });
+      setTimeout(() => showLike(Like), 1000);
+    }
+
+    const handleLikeClick = () => {
+      const isLike = $(".leancloud-like").length === 1 && $(".leancloud-like").hasClass('islike') ? true : false;
+      if (isLike) {
+        ZHAOO.zui.message({ text: '小心心不可以收回呢~', type: 'warning' });
+      } else {
+        addLike(Like);
+      }
+    }
+
     $(function () {
-      const Counter = AV.Object.extend("Counter");
       addCount(Counter);
       showCount(Counter);
+      showLike(Like);
+      $(".fab-like").on("click", function () {
+        handleLikeClick();
+      });
     });
 
   });

@@ -1,4 +1,6 @@
 console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; color:#ffffff", "", "https://mp.weixin.qq.com/s/3-3_Ns5nDIhcB7TS7d-ocA");
+console.log("%c Github %c", "background:#333333; color:#ffffff", "", "https://github.com/xiaokangxxs");
+
 (function ($) {
   "use strict";
 
@@ -9,6 +11,7 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
       fn.hideFab();
       ZHAOO.utils.bindKeyup(27, function () {
         fn.hideMenu();
+        $(".navbar").removeClass("hide");
       });
     },
     hideMenu: function () {
@@ -21,6 +24,7 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
       fn.hideFab();
       ZHAOO.utils.bindKeyup(27, function () {
         fn.hideSearch();
+        $(".navbar").removeClass("hide");
       });
     },
     hideSearch: function () {
@@ -32,12 +36,14 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
       $(".fab-plus").addClass("fab-plus-active");
       $(".fab-daovoice").addClass("fab-daovoice-active");
       $(".fab-tencent-chao").addClass("fab-tencent-chao-active");
+      $(".fab-like").addClass("fab-like-active");
     },
     freezeFab: function () {
       $(".fab-up").removeClass("fab-up-active");
       $(".fab-plus").removeClass("fab-plus-active");
       $(".fab-daovoice").removeClass("fab-daovoice-active");
       $(".fab-tencent-chao").removeClass("fab-tencent-chao-active");
+      $(".fab-like").removeClass("fab-like-active");
     },
     showFab: function () {
       $(".fab").removeClass("fab-hide").addClass("fab-show");
@@ -100,10 +106,10 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
           if ($(window).scrollTop() > 60) {
             $(".navbar .center").addClass("hide");
           } else {
+            $(".navbar .center").removeClass("hide");
             if (!CONFIG.isHome) {
               $(".navbar").removeClass("transparent");
             }
-            $(".navbar .center").removeClass("hide");
           }
         }
         center();
@@ -450,6 +456,15 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
         $(".navbar").removeClass("hide");
       });
       fn.doSearch(path, 'search-input', 'search-output');
+    },
+    lottie: function () {
+      lottie.loadAnimation({
+        container: document.getElementById("loading"),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: CONFIG.loading.lottie
+      });
     }
   }
 
@@ -472,6 +487,7 @@ console.info("%c 微信公众号：小康新鲜事儿 %c", "background:#333333; 
     CONFIG.scrollbar.type === 'simple' && action.scrollbar();
     CONFIG.notification.enable && action.notification();
     CONFIG.search.enable && action.search();
+    CONFIG.loading.lottie && action.lottie();
   });
 
 })(jQuery);

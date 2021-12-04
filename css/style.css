@@ -7,6 +7,8 @@
   --color-text-third: #999;
   --color-border: #eee;
   --background-image: url("http://file.xiaokang.cool/index_theme/welcome-image-light.jpg");
+  --loading-image: url("");
+  --lazyload-image: url("http://file.xiaokang.cool/index_theme/loading.gif");
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,6 +23,8 @@
     --color-text-third: #7d8594;
     --color-border: #2b3038;
     --background-image: url("http://file.xiaokang.cool/index_theme/welcome-image.jpg");
+    --loading-image: url("");
+    --lazyload-image: url("http://file.xiaokang.cool/index_theme/loading.gif");
   }
 }
 [color-mode='dark'] {
@@ -32,6 +36,8 @@
   --color-text-third: #7d8594;
   --color-border: #2b3038;
   --background-image: url("http://file.xiaokang.cool/index_theme/welcome-image.jpg");
+  --loading-image: url("");
+  --lazyload-image: url("http://file.xiaokang.cool/index_theme/loading.gif");
 }
 [color-mode='dark'] .tags a {
   color: var(--color-text) !important;
@@ -791,14 +797,14 @@ body input {
   opacity: 1;
 }
 .lazyload {
-  background: url("http://file.xiaokang.cool/index_theme/loading.gif") no-repeat center;
+  background: var(--lazyload-image) no-repeat center;
 }
 .loading {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
-  background: url("http://file.xiaokang.cool/index_theme/loading.gif") no-repeat center;
+  background: var(--loading-image) no-repeat center;
   background-color: var(--color-background);
   z-index: 2019;
   overflow: hidden;
@@ -857,6 +863,7 @@ body input {
 @media (hover: hover) and (pointer: fine) {
   .fab:hover {
     background-color: #0074d9;
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
     cursor: pointer;
   }
 }
@@ -881,7 +888,7 @@ body input {
   visibility: visible;
 }
 .fab-daovoice {
-  z-index: 10;
+  z-index: 80;
   visibility: hidden;
 }
 .fab-daovoice-active {
@@ -889,10 +896,18 @@ body input {
   visibility: visible;
 }
 .fab-tencent-chao {
-  z-index: 10;
+  z-index: 80;
   visibility: hidden;
 }
 .fab-tencent-chao-active {
+  bottom: 180px;
+  visibility: visible;
+}
+.fab-like {
+  z-index: 70;
+  visibility: hidden;
+}
+.fab-like-active {
   bottom: 180px;
   visibility: visible;
 }
@@ -1413,7 +1428,8 @@ body input {
   top: 10px;
   left: -28px;
   width: 100px;
-  background-color: #ff3b00;
+  background-color: #0074d9;
+  background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
   color: #fff;
   box-shadow: -3px 5px 6px -5px rgba(0,0,0,0.5);
 }
@@ -1772,6 +1788,7 @@ body input {
 }
 .article .wrap .main .comments .btn:hover {
   background-color: #0074d9;
+  background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
   color: #fff;
   transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
   cursor: pointer;
@@ -1986,8 +2003,12 @@ body input {
 }
 .galleries {
   min-height: calc(100vh - 350px);
-  max-width: 100%;
-  padding: 0 10px;
+}
+@media (max-width: 768px) {
+  .galleries {
+    max-width: 100%;
+    padding: 0 10px;
+  }
 }
 .galleries .wrap {
   display: grid;
