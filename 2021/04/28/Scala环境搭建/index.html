@@ -212,29 +212,34 @@
           <i class="iconfont iconheart"></i><span id="/2021/04/28/Scala%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="leancloud-like" data-flag-title="Scala环境搭建"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1829</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1858</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
 		
+          <p>Scala环境搭建</p>
+        
         <blockquote>
 <p><strong>系统环境</strong>：CentOS 7.x、Windows10</p>
 <p><strong>JDK 版本</strong>：1.8+</p>
 </blockquote>
 <h2 id="一、Window-下搭建开发环境"><a href="#一、Window-下搭建开发环境" class="headerlink" title="一、Window 下搭建开发环境"></a>一、Window 下搭建开发环境</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><p>确保 JDK8 安装成功, 并成功配置环境变量:<code>JAVA_HOME</code>, <code>Path</code></p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/Windows-env.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 2. 下载
 
-<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>下载对应的Scala安装文件，我这里下载的是<code>scala-2.11.12.zip </code>，下载地址： <a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/2.11.12.html">https://www.scala-lang.org/download/2.11.12.html</a></p>
+<p>下载对应的Scala安装文件，我这里下载的是<code>scala-2.11.12.zip </code>，下载地址： <a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/2.11.12.html">https://www.scala-lang.org/download/2.11.12.html</a></p>
 <h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h3><p>解压<code>scala-2.11.12.zip</code>，我这里解压到<code>E:\software</code></p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_dir.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 4. 配置环境变量
 
-<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4. 配置环境变量"></a>4. 配置环境变量</h3><p>配置 Scala 环境变量:<code>SCALA_HOME</code>和<code>Path</code></p>
+<p>配置 Scala 环境变量:<code>SCALA_HOME</code>和<code>Path</code></p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_home.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_path.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 5. 验证安装是否成功
 
-<h3 id="5-验证安装是否成功"><a href="#5-验证安装是否成功" class="headerlink" title="5. 验证安装是否成功"></a>5. 验证安装是否成功</h3><p>按下键盘的<code>Win+R</code>后，输入<code>cmd</code>回车，输入Scala，如果能进入 Scala 交互环境，则代表安装成功：</p>
+<p>按下键盘的<code>Win+R</code>后，输入<code>cmd</code>回车，输入Scala，如果能进入 Scala 交互环境，则代表安装成功：</p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/win_scala.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
 ## 二、Linux 下搭建开发环境
 
@@ -252,17 +257,20 @@
 
 <h3 id="4-验证安装是否成功"><a href="#4-验证安装是否成功" class="headerlink" title="4. 验证安装是否成功"></a>4. 验证安装是否成功</h3><p>输入<code>scala</code>，如果能进入 Scala 交互环境，则代表安装成功：</p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/linux_scala.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+## 三、Scala 的 Hello world 案例
 
-<h2 id="三、Scala-的-Hello-world-案例"><a href="#三、Scala-的-Hello-world-案例" class="headerlink" title="三、Scala 的 Hello world 案例"></a>三、Scala 的 Hello world 案例</h2><p><code>需要提前给IDEA安装好Scala插件</code>，插件下载地址：<a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/1347-scala/versions">https://plugins.jetbrains.com/plugin/1347-scala/versions</a></p>
+<p><code>需要提前给IDEA安装好Scala插件</code>，插件下载地址：<a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/1347-scala/versions">https://plugins.jetbrains.com/plugin/1347-scala/versions</a></p>
 <h3 id="1-创建一个-Maven-工程"><a href="#1-创建一个-Maven-工程" class="headerlink" title="1. 创建一个 Maven 工程"></a>1. 创建一个 Maven 工程</h3><h3 id="2-引入-Scala-框架"><a href="#2-引入-Scala-框架" class="headerlink" title="2. 引入 Scala 框架"></a>2. 引入 Scala 框架</h3><p>默认下，maven 不支持 scala 的开发，需要引入 scala 框架。 </p>
 <p>点击项目-&gt; 右键 -&gt; add framework support… ，在下图选择scala </p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/idea_scala_sdk.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_sdk.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 3. 创建项目的源文件目录
 
-<h3 id="3-创建项目的源文件目录"><a href="#3-创建项目的源文件目录" class="headerlink" title="3. 创建项目的源文件目录"></a>3. 创建项目的源文件目录</h3><p>在 <code>main</code> 下创建一个文件夹作为 scala 源文件的根目录, 比如目录名: <code>scala</code>, 然后标记为源文件根目录 </p>
+<p>在 <code>main</code> 下创建一个文件夹作为 scala 源文件的根目录, 比如目录名: <code>scala</code>, 然后标记为源文件根目录 </p>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_source.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+### 4. 创建 Scala 的类
 
-<h3 id="4-创建-Scala-的类"><a href="#4-创建-Scala-的类" class="headerlink" title="4. 创建 Scala 的类"></a>4. 创建 Scala 的类</h3><div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_class.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
+<div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_class.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
 <div align="center"> <img  width="600px"  class="lazyload" data-original="https://raw.githubusercontent.com/xiaokangxxs/notebook/master/docs/BigData/Scala/scala_object.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" /> </div>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span>: 小康</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span>: 2020/4/9 17:25</span><br><span class="hljs-comment"> *        微信公众号：小康新鲜事儿</span><br><span class="hljs-comment"> *        小康个人文档：http://www.xiaokang.cool/</span><br><span class="hljs-comment"> */</span><br>object HelloWorld &#123;<br>  <span class="hljs-function">def <span class="hljs-title">main</span><span class="hljs-params">(args: Array[String])</span>: Unit </span>= &#123;<br>    println(<span class="hljs-string">&quot;hello,world-Scala&quot;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -342,7 +350,7 @@ demo代码下载地址：[scala_demo](https://github.com/xiaokangxxs/notebook/tr
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Window-%E4%B8%8B%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">一、Window 下搭建开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD"><span class="toc-text">2. 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%A3%E5%8E%8B"><span class="toc-text">3. 解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">4. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">5. 验证安装是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8B"><span class="toc-text">2. 下载解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">3. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">4. 验证安装是否成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Scala-%E7%9A%84-Hello-world-%E6%A1%88%E4%BE%8B"><span class="toc-text">三、Scala 的 Hello world 案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-Maven-%E5%B7%A5%E7%A8%8B"><span class="toc-text">1. 创建一个 Maven 工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5-Scala-%E6%A1%86%E6%9E%B6"><span class="toc-text">2. 引入 Scala 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BA%90%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-text">3. 创建项目的源文件目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%9B%E5%BB%BA-Scala-%E7%9A%84%E7%B1%BB"><span class="toc-text">4. 创建 Scala 的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%90%E8%A1%8C"><span class="toc-text">5. 运行</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Window-%E4%B8%8B%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">一、Window 下搭建开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%A3%E5%8E%8B"><span class="toc-text">3. 解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8B"><span class="toc-text">2. 下载解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">3. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">4. 验证安装是否成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-Maven-%E5%B7%A5%E7%A8%8B"><span class="toc-text">1. 创建一个 Maven 工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5-Scala-%E6%A1%86%E6%9E%B6"><span class="toc-text">2. 引入 Scala 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%90%E8%A1%8C"><span class="toc-text">5. 运行</span></a></li></ol></li></ol>
   </aside>
 
         
